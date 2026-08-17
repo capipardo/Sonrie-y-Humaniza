@@ -1,1830 +1,1388 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="theme-color"
-          content="#0b1220">
+<title>Sonríe y Humaniza | Pequeños gestos. Grandes personas.</title>
 
-    <meta name="description"
-          content="Sonríe y Humaniza. Una iniciativa para construir estaciones de servicio más cercanas, humanas y conectadas con las personas.">
+<meta name="description"
+content="Sonríe y Humaniza es una iniciativa para fomentar la amabilidad, el respeto y la cercanía en las estaciones de servicio.">
 
-    <meta name="keywords"
-          content="Sonríe y Humaniza, estación de servicio, clientes, experiencia del cliente, sugerencias, atención al cliente">
+<meta name="keywords"
+content="sonríe, humaniza, estación de servicio, amabilidad, empatía, clientes">
 
-    <meta name="author"
-          content="Sonríe y Humaniza">
+<meta name="author"
+content="Sonríe y Humaniza">
 
-    <title>
-        Sonríe y Humaniza | La energía que mueve a las personas
-    </title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
-          rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Iconos -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="css/styles.css">
 
-    <!-- Nuestro CSS -->
-    <link rel="stylesheet"
-          href="css/styles.css">
+<style>
+
+body{
+
+font-family:'Inter',sans-serif;
+
+}
+
+.hero{
+
+height:100vh;
+
+background:
+
+linear-gradient(rgba(15,23,42,.72),rgba(15,23,42,.72)),
+
+url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80");
+
+background-size:cover;
+
+background-position:center;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+color:white;
+
+}
+
+.hero h1{
+
+font-size:4rem;
+
+font-weight:800;
+
+}
+
+.hero p{
+
+font-size:1.4rem;
+
+max-width:750px;
+
+margin:auto;
+
+}
+
+.btn-humaniza{
+
+background:#f5b301;
+
+color:#0f172a;
+
+font-weight:700;
+
+padding:18px 40px;
+
+border-radius:60px;
+
+transition:.3s;
+
+text-decoration:none;
+
+}
+
+.btn-humaniza:hover{
+
+background:#ffd24d;
+
+transform:translateY(-3px);
+
+}
+
+.navbar{
+
+background:white;
+
+box-shadow:0 3px 20px rgba(0,0,0,.08);
+
+}
+
+.navbar-brand{
+
+font-weight:800;
+
+color:#0f172a!important;
+
+}
+
+.nav-link{
+
+font-weight:600;
+
+margin-left:20px;
+
+}
+
+</style>
 
 </head>
 
-
 <body>
 
-<!-- =========================================================
-     PRELOADER
-========================================================= -->
+<nav class="navbar navbar-expand-lg fixed-top">
 
-<div id="preloader">
+<div class="container">
 
-    <div class="loader-content">
+<a class="navbar-brand" href="#">
 
-        <div class="loader-smile">
-            😊
-        </div>
+😊 Sonríe y Humaniza
 
-        <div class="loader-text">
-            Sonríe y Humaniza
-        </div>
+</a>
 
-        <div class="loader-line"></div>
+<button class="navbar-toggler"
 
-    </div>
+type="button"
+
+data-bs-toggle="collapse"
+
+data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse"
+
+id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+
+<a class="nav-link"
+
+href="#inicio">
+
+Inicio
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link"
+
+href="#mision">
+
+Nuestra misión
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link"
+
+href="#participa">
+
+Participa
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link"
+
+href="#ayudarte">
+
+¿Cómo podemos ayudarte?
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link"
+
+href="#contacto">
+
+Contacto
+
+</a>
+
+</li>
+
+</ul>
 
 </div>
 
+</div>
 
-<!-- =========================================================
-     NAVEGACIÓN
-========================================================= -->
-
-<header class="site-header"
-        id="siteHeader">
-
-    <nav class="navbar">
-
-        <div class="container nav-container">
-
-            <!-- LOGO -->
-
-            <a href="#inicio"
-               class="brand"
-               aria-label="Sonríe y Humaniza - Inicio">
-
-                <span class="brand-symbol">
-                    😊
-                </span>
-
-                <span class="brand-name">
-                    Sonríe
-                    <strong>y Humaniza</strong>
-                </span>
-
-            </a>
-
-
-            <!-- BOTÓN MÓVIL -->
-
-            <button class="mobile-menu-button"
-                    id="mobileMenuButton"
-                    type="button"
-                    aria-label="Abrir menú"
-                    aria-expanded="false">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </button>
-
-
-            <!-- MENÚ -->
-
-            <div class="nav-menu"
-                 id="navMenu">
-
-                <a href="#inicio"
-                   class="nav-link active">
-
-                    Inicio
-
-                </a>
-
-                <a href="#filosofia"
-                   class="nav-link">
-
-                    Filosofía
-
-                </a>
-
-                <a href="#estacion"
-                   class="nav-link">
-
-                    Nuestra estación
-
-                </a>
-
-                <a href="#ideas"
-                   class="nav-link nav-link-highlight">
-
-                    <span>💡</span>
-                    Tu idea
-
-                </a>
-
-                <a href="#historias"
-                   class="nav-link">
-
-                    Historias
-
-                </a>
-
-                <a href="#contacto"
-                   class="nav-link">
-
-                    Contacto
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </nav>
-
-</header>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<main>
+</nav>
 
 <section class="hero"
-         id="inicio">
 
-    <div class="hero-background"></div>
+id="inicio">
 
-    <div class="hero-overlay"></div>
+<div class="container">
 
-    <div class="hero-glow hero-glow-one"></div>
-    <div class="hero-glow hero-glow-two"></div>
+<h1>
 
+Sonríe y Humaniza
 
-    <div class="container hero-container">
+</h1>
 
-        <div class="hero-content">
+<p class="mt-4">
 
-            <div class="hero-eyebrow">
+Una sonrisa puede durar unos segundos...
 
-                <span class="eyebrow-dot"></span>
+pero un gesto amable puede acompañar a una persona durante toda la vida.
 
-                UN MOVIMIENTO PARA HACER LAS COSAS DE OTRA MANERA
+</p>
 
-            </div>
+<div class="mt-5">
 
+<a href="#participa"
 
-            <h1>
+class="btn-humaniza">
 
-                La energía mueve
-                <span>los vehículos.</span>
+💛 Quiero participar
 
-                <br>
+</a>
 
-                La humanidad mueve
-                <span class="highlight">a las personas.</span>
+</div>
 
-            </h1>
+</div>
 
+</section>
+<!-- ===========================
+NUESTRA MISIÓN
+============================ -->
 
-            <p class="hero-description">
+<section id="mision" class="py-5 bg-white">
 
-                En <strong>Sonríe y Humaniza</strong> creemos que una
-                estación de servicio puede ser mucho más que un lugar
-                donde parar a repostar.
+<div class="container">
 
-                Puede ser un lugar donde alguien te recibe,
-                te escucha y te hace sentir bienvenido.
+<div class="row align-items-center g-5">
 
-            </p>
+<div class="col-lg-6">
 
+<span class="badge bg-warning text-dark mb-3 p-2">
 
-            <div class="hero-actions">
+MOVIMIENTO SONRÍE Y HUMANIZA
 
-                <a href="#ideas"
-                   class="btn btn-primary">
+</span>
 
-                    <span>💡</span>
+<h2 class="display-5 fw-bold mb-4">
 
-                    Comparte tu idea
+Cada pequeño gesto puede cambiar el día de una persona.
 
-                    <i class="bi bi-arrow-up-right"></i>
+</h2>
 
-                </a>
+<p class="lead text-secondary">
 
+En una estación de servicio pasan cientos de personas cada día.
 
-                <a href="#filosofia"
-                   class="btn btn-ghost">
+Muchas llegan con prisas, preocupaciones o simplemente con la mente en otro lugar.
 
-                    Conoce el proyecto
+</p>
 
-                    <i class="bi bi-arrow-down"></i>
+<p class="text-secondary">
 
-                </a>
+Creemos que una sonrisa, un saludo amable o una atención cercana pueden transformar una experiencia cotidiana en un momento positivo.
 
-            </div>
+Sonríe y Humaniza nace para recordar que detrás de cada repostaje hay personas con historias diferentes.
 
+</p>
 
-            <!-- MINI DATOS -->
+<div class="mt-4">
 
-            <div class="hero-stats">
+<a href="#participa" class="btn btn-warning btn-lg rounded-pill px-4">
 
-                <div class="hero-stat">
+Quiero sumarme
 
-                    <strong>01</strong>
+</a>
 
-                    <span>
-                        Escuchar
-                    </span>
+</div>
 
-                </div>
+</div>
 
+<div class="col-lg-6">
 
-                <div class="hero-stat">
+<img
 
-                    <strong>02</strong>
+src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80"
 
-                    <span>
-                        Mejorar
-                    </span>
+class="img-fluid rounded-4 shadow-lg"
 
-                </div>
+alt="Personas sonriendo">
 
+</div>
 
-                <div class="hero-stat">
+</div>
 
-                    <strong>03</strong>
+</div>
 
-                    <span>
-                        Humanizar
-                    </span>
+</section>
 
-                </div>
+<!-- ===========================
+VALORES
+============================ -->
 
-            </div>
+<section class="py-5 bg-light">
 
-        </div>
+<div class="container">
 
+<div class="text-center mb-5">
 
-        <!-- TARJETA FLOTANTE -->
+<h2 class="fw-bold">
 
-        <div class="hero-card">
+Nuestros valores
 
-            <div class="hero-card-icon">
-                💛
-            </div>
+</h2>
 
-            <div>
+<p class="text-secondary">
 
-                <small>
-                    UNA IDEA PUEDE CAMBIARLO TODO
-                </small>
+Pequeños gestos capaces de generar grandes cambios.
 
-                <strong>
-                    Tu opinión importa.
-                </strong>
+</p>
 
-            </div>
+</div>
 
-        </div>
+<div class="row g-4">
 
-    </div>
+<div class="col-md-4">
 
+<div class="card border-0 shadow h-100 rounded-4">
 
-    <a href="#filosofia"
-       class="scroll-indicator"
-       aria-label="Desplazarse hacia abajo">
+<div class="card-body p-5 text-center">
 
-        <span>
-            Descubre más
-        </span>
+<div style="font-size:55px;">😊</div>
 
-        <i class="bi bi-arrow-down"></i>
+<h4 class="mt-4">
 
-    </a>
+Sonríe
+
+</h4>
+
+<p class="text-secondary">
+
+Una sonrisa sincera puede convertirse en el mejor comienzo para el día de otra persona.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card border-0 shadow h-100 rounded-4">
+
+<div class="card-body p-5 text-center">
+
+<div style="font-size:55px;">🤝</div>
+
+<h4 class="mt-4">
+
+Conecta
+
+</h4>
+
+<p class="text-secondary">
+
+Escuchar, respetar y atender con cercanía crea relaciones más humanas.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card border-0 shadow h-100 rounded-4">
+
+<div class="card-body p-5 text-center">
+
+<div style="font-size:55px;">❤️</div>
+
+<h4 class="mt-4">
+
+Humaniza
+
+</h4>
+
+<p class="text-secondary">
+
+Nuestro objetivo es hacer que cada visita a una estación sea una experiencia más agradable.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+ESTADÍSTICAS
+============================ -->
+
+<section class="py-5 text-white" style="background:#0F172A;">
+
+<div class="container">
+
+<div class="row text-center">
+
+<div class="col-md-3">
+
+<h2 class="display-4 fw-bold">
+
++500
+
+</h2>
+
+<p>
+
+Clientes atendidos cada día
+
+</p>
+
+</div>
+
+<div class="col-md-3">
+
+<h2 class="display-4 fw-bold">
+
+100%
+
+</h2>
+
+<p>
+
+Compromiso
+
+</p>
+
+</div>
+
+<div class="col-md-3">
+
+<h2 class="display-4 fw-bold">
+
+∞
+
+</h2>
+
+<p>
+
+Pequeños gestos
+
+</p>
+
+</div>
+
+<div class="col-md-3">
+
+<h2 class="display-4 fw-bold">
+
+1
+
+</h2>
+
+<p>
+
+Objetivo común
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ==========================================
+PARTICIPA
+========================================== -->
+
+<section id="participa" class="py-5">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="badge bg-warning text-dark px-3 py-2">
+
+SÚMATE AL MOVIMIENTO
+
+</span>
+
+<h2 class="display-5 fw-bold mt-3">
+
+Todos podemos hacer más humana una estación de servicio.
+
+</h2>
+
+<p class="lead text-secondary">
+
+No hace falta hacer grandes cosas.
+
+Una sonrisa, una palabra amable o un gesto de respeto pueden marcar la diferencia.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-4">
+
+<div class="card border-0 shadow rounded-4 h-100">
+
+<div class="card-body text-center p-5">
+
+<div style="font-size:60px;">
+
+😊
+
+</div>
+
+<h4 class="mt-4">
+
+Sonríe
+
+</h4>
+
+<p class="text-secondary">
+
+Una sonrisa sincera transmite cercanía y genera confianza.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="card border-0 shadow rounded-4 h-100">
+
+<div class="card-body text-center p-5">
+
+<div style="font-size:60px;">
+
+💬
+
+</div>
+
+<h4 class="mt-4">
+
+Escucha
+
+</h4>
+
+<p class="text-secondary">
+
+Cada persona tiene una historia.
+
+Escuchar también es una forma de ayudar.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="card border-0 shadow rounded-4 h-100">
+
+<div class="card-body text-center p-5">
+
+<div style="font-size:60px;">
+
+❤️
+
+</div>
+
+<h4 class="mt-4">
+
+Humaniza
+
+</h4>
+
+<p class="text-secondary">
+
+Los pequeños gestos crean grandes experiencias.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =========================================================
-     FILOSOFÍA
-========================================================= -->
 
-<section class="section philosophy-section"
-         id="filosofia">
+<!-- ==========================================
+CÓMO PODEMOS AYUDARTE · NECESIDADES DE LA ESTACIÓN
+========================================== -->
 
-    <div class="container">
+<section id="ayudarte" class="py-5 ideas-section">
 
-        <div class="section-heading">
+<div class="container py-4">
 
-            <div class="section-kicker">
+<div class="section-heading text-center">
 
-                <span></span>
+<span class="section-kicker">TU EXPERIENCIA CUENTA</span>
 
-                NUESTRA FILOSOFÍA
+<h2 class="mt-3">
 
-            </div>
+¿Cómo podemos hacer que tu visita a la estación sea mejor?
 
+</h2>
 
-            <h2>
+<p class="mx-auto">
 
-                Una estación también
-                puede ser un lugar
-                <em>humano.</em>
+Queremos conocer necesidades reales de las personas que utilizan una estación de servicio.
+Cuéntanos qué echas en falta, qué mejorarías o qué servicio te facilitaría las cosas.
 
-            </h2>
+</p>
 
+</div>
 
-            <p>
+<div class="row justify-content-center">
 
-                Cada día pasan por una estación cientos de personas.
-                Algunas tienen prisa. Otras están cansadas.
-                Algunas simplemente necesitan que alguien las atienda
-                con un poco de cercanía.
+<div class="col-xl-10">
 
-            </p>
+<div class="ideas-options">
 
-        </div>
+<label class="idea-option">
 
+<input type="checkbox" name="necesidad[]" value="Servicio o producto que actualmente no hay" class="visually-hidden necesidad-check">
 
-        <div class="philosophy-grid">
+<strong>➕ Algo que actualmente no tenemos</strong>
 
+<p class="mt-2 mb-0 text-white-50">
 
-            <!-- TARJETA 1 -->
+Un producto, servicio o recurso que te gustaría encontrar en la estación.
 
-            <article class="philosophy-card">
+</p>
 
-                <div class="card-number">
-                    01
-                </div>
+</label>
 
-                <div class="philosophy-icon">
-                    😊
-                </div>
+<label class="idea-option">
 
-                <h3>
-                    Sonríe
-                </h3>
+<input type="checkbox" name="necesidad[]" value="Mejora de la atención" class="visually-hidden necesidad-check">
 
-                <p>
+<strong>🤝 Mejorar la atención</strong>
 
-                    Una sonrisa sincera puede convertir
-                    una parada cotidiana en un momento
-                    mucho más agradable.
+<p class="mt-2 mb-0 text-white-50">
 
-                </p>
+Una forma diferente de atenderte o ayudarte durante tu visita.
 
-                <span class="card-line"></span>
+</p>
 
-            </article>
+</label>
 
+<label class="idea-option">
 
-            <!-- TARJETA 2 -->
+<input type="checkbox" name="necesidad[]" value="Mejora de instalaciones" class="visually-hidden necesidad-check">
 
-            <article class="philosophy-card featured">
+<strong>🏪 Mejorar las instalaciones</strong>
 
-                <div class="card-number">
-                    02
-                </div>
+<p class="mt-2 mb-0 text-white-50">
 
-                <div class="philosophy-icon">
-                    👂
-                </div>
+Cambios en tienda, aseos, accesos, zona de descanso u otros espacios.
 
-                <h3>
-                    Escucha
-                </h3>
+</p>
 
-                <p>
+</label>
 
-                    Quienes visitan una estación cada día
-                    tienen mucho que aportar. Escuchar es
-                    el primer paso para mejorar.
+<label class="idea-option">
 
-                </p>
+<input type="checkbox" name="necesidad[]" value="Accesibilidad o comodidad" class="visually-hidden necesidad-check">
 
-                <span class="card-line"></span>
+<strong>♿ Más accesibilidad y comodidad</strong>
 
-            </article>
+<p class="mt-2 mb-0 text-white-50">
 
+Algo que haga más sencilla y cómoda la visita para todas las personas.
 
-            <!-- TARJETA 3 -->
+</p>
 
-            <article class="philosophy-card">
+</label>
 
-                <div class="card-number">
-                    03
-                </div>
+<label class="idea-option">
 
-                <div class="philosophy-icon">
-                    ❤️
-                </div>
+<input type="checkbox" name="necesidad[]" value="Nuevo servicio" class="visually-hidden necesidad-check">
 
-                <h3>
-                    Humaniza
-                </h3>
+<strong>💡 Un nuevo servicio</strong>
 
-                <p>
+<p class="mt-2 mb-0 text-white-50">
 
-                    Detrás de cada vehículo hay una persona.
-                    Y cada persona merece sentirse tratada
-                    con respeto y cercanía.
+Una idea que creas que tendría utilidad para los clientes.
 
-                </p>
+</p>
 
-                <span class="card-line"></span>
+</label>
 
-            </article>
+<label class="idea-option">
 
-        </div>
+<input type="checkbox" name="necesidad[]" value="Otra sugerencia" class="visually-hidden necesidad-check">
 
-    </div>
+<strong>💬 Otra sugerencia</strong>
+
+<p class="mt-2 mb-0 text-white-50">
+
+Si es algo diferente, también queremos escucharlo.
+
+</p>
+
+</label>
+
+</div>
+
+<div class="idea-callout">
+
+<p>
+
+<strong>Lo más importante:</strong> no buscamos respuestas perfectas.
+Queremos saber qué necesitas tú como cliente.
+
+</p>
+
+</div>
+
+<div class="contact-form-wrapper mt-4">
+
+<h3 class="fw-bold mb-3" style="color:#102a2d;">
+
+Cuéntanos tu idea
+
+</h3>
+
+<p class="mb-4" style="color:#6b7f81;">
+
+¿Qué pedirías o qué cambiarías dentro de una estación de servicio para que tu experiencia fuera mejor?
+
+</p>
+
+<textarea id="necesidadTexto"
+class="form-control"
+rows="5"
+placeholder="Por ejemplo: me gustaría encontrar..., echo en falta..., sería útil que..."></textarea>
+
+<div class="mt-4">
+
+<a href="#contacto" class="btn btn-warning btn-lg rounded-pill px-5">
+
+💛 Enviar mi propuesta
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+FRASE CENTRAL
+========================================== -->
+
+<section class="py-5 bg-warning">
+
+<div class="container text-center">
+
+<h2 class="display-4 fw-bold">
+
+"La mejor energía que podemos ofrecer no sale del surtidor.
+
+Sale de las personas."
+
+</h2>
+
+<p class="lead mt-4">
+
+Movimiento Sonríe y Humaniza
+
+</p>
+
+</div>
+
+</section>
+<!-- ==========================================
+HISTORIAS QUE DEJAN HUELLA
+========================================== -->
+
+<section class="py-5 bg-light">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="badge bg-warning text-dark px-3 py-2">
+
+HISTORIAS REALES
+
+</span>
+
+<h2 class="display-5 fw-bold mt-3">
+
+Historias que dejan huella
+
+</h2>
+
+<p class="lead text-secondary">
+
+Un pequeño gesto puede quedarse para siempre en la memoria de alguien.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-4">
+
+<div class="card border-0 shadow rounded-4 h-100">
+
+<div class="card-body p-4">
+
+<div class="mb-3" style="font-size:40px;">💛</div>
+
+<p class="fst-italic">
+
+"Hoy llegué preocupado y una simple sonrisa consiguió que me marchara mucho mejor de lo que llegué."
+
+</p>
+
+<hr>
+
+<strong>Cliente anónimo</strong>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="card border-0 shadow rounded-4 h-100">
+
+<div class="card-body p-4">
+
+<div class="mb-3" style="font-size:40px;">😊</div>
+
+<p class="fst-italic">
+
+"Me atendieron con paciencia y educación cuando realmente lo necesitaba. Gracias por demostrar que aún quedan personas así."
+
+</p>
+
+<hr>
+
+<strong>Comentario recibido</strong>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="card border-0 shadow rounded-4 h-100">
+
+<div class="card-body p-4">
+
+<div class="mb-3" style="font-size:40px;">🤝</div>
+
+<p class="fst-italic">
+
+"Humanizar una estación de servicio parece algo pequeño... hasta que eres tú quien necesita ese gesto."
+
+</p>
+
+<hr>
+
+<strong>Visitante</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =========================================================
-     FRASE DESTACADA
-========================================================= -->
 
-<section class="statement-section">
+<!-- ==========================================
+GALERÍA
+========================================== -->
 
-    <div class="statement-decoration statement-decoration-one"></div>
-    <div class="statement-decoration statement-decoration-two"></div>
+<section class="py-5">
 
-    <div class="container">
+<div class="container">
 
-        <div class="statement-content">
+<div class="text-center mb-5">
 
-            <div class="statement-mark">
-                “
-            </div>
+<h2 class="display-5 fw-bold">
 
-            <blockquote>
+La humanidad también se vive
 
-                La mejor energía que podemos ofrecer
-                no sale del surtidor.
+</h2>
 
-                <span>
-                    Sale de las personas.
-                </span>
+<p class="lead text-secondary">
 
-            </blockquote>
+Cada imagen representa una actitud, una forma de atender y una manera de cuidar de las personas.
 
+</p>
 
-            <div class="statement-author">
+</div>
 
-                <span></span>
+<div class="row g-4">
 
-                Sonríe y Humaniza
+<div class="col-md-4">
 
-                <span></span>
+<img
+src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80"
+class="img-fluid rounded-4 shadow"
+alt="Personas sonriendo">
 
-            </div>
+</div>
 
-        </div>
+<div class="col-md-4">
 
-    </div>
+<img
+src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+class="img-fluid rounded-4 shadow"
+alt="Atención al cliente">
+
+</div>
+
+<div class="col-md-4">
+
+<img
+src="https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=900&q=80"
+class="img-fluid rounded-4 shadow"
+alt="Compañerismo">
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =========================================================
-     NUESTRA ESTACIÓN
-========================================================= -->
 
-<section class="section station-section"
-         id="estacion">
+<!-- ==========================================
+LLAMADA FINAL
+========================================== -->
 
-    <div class="container">
+<section class="py-5 text-white"
+style="background:#0F172A;">
 
-        <div class="station-layout">
+<div class="container text-center">
 
+<h2 class="display-4 fw-bold">
 
-            <!-- IMAGEN -->
+¿Y si empezamos hoy?
 
-            <div class="station-visual">
+</h2>
 
-                <div class="image-frame">
+<p class="lead mt-4">
 
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=85"
-                         alt="Personas compartiendo una experiencia cercana"
-                         loading="lazy">
+Cada cliente que entra por la puerta merece ser recibido con respeto, cercanía y una sonrisa.
 
-                    <div class="image-badge">
+La diferencia empieza con nosotros.
 
-                        <span class="badge-icon">
-                            💛
-                        </span>
+</p>
 
-                        <div>
+<a href="#contacto"
+class="btn btn-warning btn-lg rounded-pill mt-4 px-5">
 
-                            <strong>
-                                Personas primero
-                            </strong>
+💛 Quiero unirme al movimiento
 
-                            <small>
-                                Siempre
-                            </small>
+</a>
 
-                        </div>
+</div>
 
-                    </div>
+</section>
+<!-- ==========================================
+CONTACTO
+========================================== -->
 
-                </div>
+<section id="contacto" class="py-5 bg-white">
 
+<div class="container">
 
-                <div class="floating-number">
+<div class="text-center mb-5">
 
-                    <strong>
-                        01
-                    </strong>
+<span class="badge bg-warning text-dark px-3 py-2">
 
-                    <span>
-                        Nuestra forma
-                        de entender
-                        una estación
-                    </span>
+CONTACTA CON NOSOTROS
 
-                </div>
+</span>
 
-            </div>
+<h2 class="display-5 fw-bold mt-3">
 
+Tu opinión también puede cambiar las cosas
 
-            <!-- TEXTO -->
+</h2>
 
-            <div class="station-content">
+<p class="lead text-secondary">
 
-                <div class="section-kicker">
+Cuéntanos qué necesitas, qué echas en falta o qué mejorarías dentro de la estación de servicio.<br>
 
-                    <span></span>
+Puedes hacerlo con total libertad: tu experiencia nos ayuda a detectar oportunidades de mejora.<br>
 
-                    NUESTRA ESTACIÓN
+<strong>¡Muchas gracias por tu aportación!</strong>
 
-                </div>
+</p>
 
+</div>
 
-                <h2>
+<div class="row justify-content-center">
 
-                    No queremos
-                    ser una estación
-                    <em>más.</em>
+<div class="col-lg-8">
 
-                </h2>
+<form id="contactForm" class="bg-light rounded-4 shadow p-5">
 
+<div class="row">
 
-                <p class="large-text">
+<div class="col-md-6 mb-4">
 
-                    Queremos crear un espacio donde cada persona
-                    que entre encuentre algo más que combustible:
+<label class="form-label fw-semibold">
 
-                    <strong>
-                        una buena experiencia.
-                    </strong>
+Nombre
 
-                </p>
+</label>
 
+<input
 
-                <div class="feature-list">
+type="text"
 
-                    <div class="feature-item">
+class="form-control form-control-lg"
 
-                        <div class="feature-icon">
-                            <i class="bi bi-person-heart"></i>
-                        </div>
+name="nombre"
 
-                        <div>
+required>
 
-                            <strong>
-                                Atención cercana
-                            </strong>
+</div>
 
-                            <p>
-                                Escuchar y atender con respeto.
-                            </p>
+<div class="col-md-6 mb-4">
 
-                        </div>
+<label class="form-label fw-semibold">
 
-                    </div>
+Correo electrónico
 
+</label>
 
-                    <div class="feature-item">
+<input
 
-                        <div class="feature-icon">
-                            <i class="bi bi-lightbulb"></i>
-                        </div>
+type="email"
 
-                        <div>
+class="form-control form-control-lg"
 
-                            <strong>
-                                Ideas que importan
-                            </strong>
+name="email"
 
-                            <p>
-                                Las mejores mejoras pueden
-                                venir de nuestros clientes.
-                            </p>
+required>
 
-                        </div>
+</div>
 
-                    </div>
+</div>
 
+<div class="mb-4">
 
-                    <div class="feature-item">
+<label class="form-label fw-semibold">
 
-                        <div class="feature-icon">
-                            <i class="bi bi-arrow-repeat"></i>
-                        </div>
+Teléfono
 
-                        <div>
+</label>
 
-                            <strong>
-                                Mejorar continuamente
-                            </strong>
+<input
 
-                            <p>
-                                Escuchar, actuar y volver a escuchar.
-                            </p>
+type="tel"
 
-                        </div>
+class="form-control form-control-lg"
 
-                    </div>
+name="telefono">
 
-                </div>
+</div>
 
-            </div>
+<div class="mb-4">
 
-        </div>
+<label class="form-label fw-semibold">
 
-    </div>
+Cuéntanos tu experiencia
+
+</label>
+
+<textarea
+
+class="form-control"
+
+rows="6"
+
+name="mensaje"
+
+required
+
+placeholder="Cuéntanos qué mejorarías, qué echas en falta o cómo podríamos ayudarte dentro de la estación."></textarea>
+
+<input type="hidden" name="necesidades" id="necesidadesSeleccionadas">
+
+</div>
+
+<div class="form-check mb-4">
+
+<input
+
+class="form-check-input"
+
+type="checkbox"
+
+required
+
+id="rgpd">
+
+<label class="form-check-label"
+
+for="rgpd">
+
+He leído y acepto la política de privacidad y autorizo el tratamiento de mis datos para responder a mi consulta.
+
+</label>
+
+</div>
+
+<div class="d-grid">
+
+<button
+
+id="submitBtn"
+
+class="btn btn-warning btn-lg rounded-pill"
+
+type="submit">
+
+💛 Enviar comentario
+
+</button>
+
+</div>
+
+<p
+
+id="respuesta"
+
+class="text-center fw-bold mt-4">
+
+</p>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
+<!-- ==========================================
+FOOTER
+========================================== -->
 
-<!-- =========================================================
-     SECCIÓN IDEAS
-========================================================= -->
+<footer class="text-white py-5" style="background:#0F172A;">
 
-<section class="ideas-section"
-         id="ideas">
+<div class="container">
 
-    <div class="ideas-background"></div>
+<div class="row">
 
-    <div class="container">
+<div class="col-lg-6">
 
-        <div class="ideas-intro">
+<h3 class="fw-bold">
 
-            <div class="section-kicker light">
+😊 Sonríe y Humaniza
 
-                <span></span>
+</h3>
 
-                TU VOZ CUENTA
+<p class="mt-3">
 
-            </div>
+Una iniciativa creada para recordar que una estación de servicio también puede ser un lugar donde las personas se sientan escuchadas, respetadas y tratadas con cercanía.
 
+</p>
 
-            <h2>
+</div>
 
-                Ayúdanos a construir
-                una estación
-                <em>mejor.</em>
+<div class="col-lg-3">
 
-            </h2>
+<h5>
 
+Enlaces
 
-            <p>
+</h5>
 
-                Tú eres quien utiliza nuestros servicios.
-                Tú sabes qué echas de menos.
-                Tú puedes ayudarnos a descubrir qué podemos hacer mejor.
+<ul class="list-unstyled">
 
-            </p>
+<li><a href="#inicio" class="text-white text-decoration-none">Inicio</a></li>
 
-        </div>
+<li><a href="#mision" class="text-white text-decoration-none">Nuestra misión</a></li>
 
+<li><a href="#participa" class="text-white text-decoration-none">Participa</a></li>
 
-        <!-- OPCIONES -->
+<li><a href="#contacto" class="text-white text-decoration-none">Contacto</a></li>
 
-        <div class="ideas-options">
+</ul>
 
-            <button class="idea-option"
-                    type="button"
-                    data-idea="Más productos">
+</div>
 
-                <span class="idea-option-icon">
-                    🛒
-                </span>
+<div class="col-lg-3">
 
-                <span>
-                    Más productos
-                </span>
+<h5>
 
-            </button>
+Contacto
 
+</h5>
 
-            <button class="idea-option"
-                    type="button"
-                    data-idea="Mejor café">
+<p>
 
-                <span class="idea-option-icon">
-                    ☕
-                </span>
+📧 capisurtidor@gmail.com
 
-                <span>
-                    Mejor café
-                </span>
+</p>
 
-            </button>
+<p>
 
+🌍 Próximamente:<br>
 
-            <button class="idea-option"
-                    type="button"
-                    data-idea="Comida preparada">
+<strong>www.sonrieyhumaniza.es</strong>
 
-                <span class="idea-option-icon">
-                    🥪
-                </span>
+</p>
 
-                <span>
-                    Comida preparada
-                </span>
+</div>
 
-            </button>
+</div>
 
+<hr class="my-4">
 
-            <button class="idea-option"
-                    type="button"
-                    data-idea="Más promociones">
+<div class="text-center">
 
-                <span class="idea-option-icon">
-                    🎁
-                </span>
+<p class="mb-2">
 
-                <span>
-                    Más promociones
-                </span>
+© 2026 Sonríe y Humaniza · Todos los derechos reservados.
 
-            </button>
+</p>
 
+<p class="fst-italic text-warning">
 
-            <button class="idea-option"
-                    type="button"
-                    data-idea="Zona de descanso">
+"Gracias por ayudarnos a demostrar que la humanidad también se comparte en una estación de servicio."
 
-                <span class="idea-option-icon">
-                    🛋️
-                </span>
+</p>
 
-                <span>
-                    Zona de descanso
-                </span>
+</div>
 
-            </button>
-
-
-            <button class="idea-option"
-                    type="button"
-                    data-idea="Cargadores eléctricos">
-
-                <span class="idea-option-icon">
-                    ⚡
-                </span>
-
-                <span>
-                    Cargadores eléctricos
-                </span>
-
-            </button>
-
-
-            <button class="idea-option"
-                    type="button"
-                    data-idea="Lavado y limpieza">
-
-                <span class="idea-option-icon">
-                    🚗
-                </span>
-
-                <span>
-                    Lavado y limpieza
-                </span>
-
-            </button>
-
-
-            <button class="idea-option"
-                    type="button"
-                    data-idea="Otro">
-
-                <span class="idea-option-icon">
-                    ✨
-                </span>
-
-                <span>
-                    Tengo otra idea
-                </span>
-
-            </button>
-
-        </div>
-
-
-        <div class="ideas-note">
-
-            <i class="bi bi-info-circle"></i>
-
-            Puedes seleccionar más de una opción.
-
-        </div>
-
-
-        <div class="idea-callout">
-
-            <div class="idea-callout-icon">
-                💡
-            </div>
-
-            <div>
-
-                <strong>
-                    ¿Tienes una idea diferente?
-                </strong>
-
-                <p>
-                    Cuéntanosla. No buscamos respuestas perfectas.
-                    Buscamos ideas que nos ayuden a mejorar.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <a href="#contacto"
-           class="btn btn-primary btn-large">
-
-            Quiero compartir mi propuesta
-
-            <i class="bi bi-arrow-right"></i>
-
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     MEJORAS
-========================================================= -->
-
-<section class="section improvements-section">
-
-    <div class="container">
-
-        <div class="section-heading centered">
-
-            <div class="section-kicker">
-
-                <span></span>
-
-                DE LAS IDEAS A LOS HECHOS
-
-            </div>
-
-
-            <h2>
-
-                Las mejoras
-                nacen <em>de vosotros.</em>
-
-            </h2>
-
-
-            <p>
-
-                Queremos que tus propuestas no se queden
-                simplemente en un formulario.
-
-                Queremos convertirlas en mejoras reales.
-
-            </p>
-
-        </div>
-
-
-        <div class="improvements-grid">
-
-
-            <article class="improvement-card">
-
-                <div class="improvement-top">
-
-                    <span class="improvement-icon">
-                        ☕
-                    </span>
-
-                    <span class="status status-study">
-                        En estudio
-                    </span>
-
-                </div>
-
-                <h3>
-                    Más opciones de café
-                </h3>
-
-                <p>
-                    Una propuesta que estamos valorando
-                    para mejorar la experiencia de nuestros clientes.
-                </p>
-
-                <span class="improvement-footer">
-                    Propuesta de clientes
-                </span>
-
-            </article>
-
-
-            <article class="improvement-card">
-
-                <div class="improvement-top">
-
-                    <span class="improvement-icon">
-                        🥪
-                    </span>
-
-                    <span class="status status-soon">
-                        Próximamente
-                    </span>
-
-                </div>
-
-                <h3>
-                    Más variedad de comida
-                </h3>
-
-                <p>
-                    Porque parar también puede ser una oportunidad
-                    para comer algo que realmente te apetezca.
-                </p>
-
-                <span class="improvement-footer">
-                    Propuesta de clientes
-                </span>
-
-            </article>
-
-
-            <article class="improvement-card">
-
-                <div class="improvement-top">
-
-                    <span class="improvement-icon">
-                        💛
-                    </span>
-
-                    <span class="status status-done">
-                        Implantada
-                    </span>
-
-                </div>
-
-                <h3>
-                    Escuchar más al cliente
-                </h3>
-
-                <p>
-                    Esta es la primera mejora que nunca queremos
-                    dejar de aplicar.
-                </p>
-
-                <span class="improvement-footer">
-                    Sonríe y Humaniza
-                </span>
-
-            </article>
-
-        </div>
-
-
-        <div class="improvements-message">
-
-            <span class="message-icon">
-                🎯
-            </span>
-
-            <p>
-                <strong>
-                    Una sugerencia puede ser el comienzo de una mejora.
-                </strong>
-
-                Y queremos saber cuál será la siguiente.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CIFRAS
-========================================================= -->
-
-<section class="numbers-section">
-
-    <div class="container">
-
-        <div class="numbers-heading">
-
-            <div class="section-kicker light">
-
-                <span></span>
-
-                EL MOVIMIENTO EN NÚMEROS
-
-            </div>
-
-            <h2>
-                Muchas personas.
-                <br>
-                <em>Un objetivo común.</em>
-            </h2>
-
-        </div>
-
-
-        <div class="numbers-grid">
-
-            <div class="number-item">
-
-                <strong data-counter="500">
-                    500+
-                </strong>
-
-                <span>
-                    Personas que pasan
-                    cada día
-                </span>
-
-            </div>
-
-
-            <div class="number-item">
-
-                <strong data-counter="100">
-                    100%
-                </strong>
-
-                <span>
-                    Compromiso con
-                    las personas
-                </span>
-
-            </div>
-
-
-            <div class="number-item">
-
-                <strong>
-                    ∞
-                </strong>
-
-                <span>
-                    Pequeños gestos
-                    que compartir
-                </span>
-
-            </div>
-
-
-            <div class="number-item">
-
-                <strong>
-                    1
-                </strong>
-
-                <span>
-                    Objetivo:
-                    humanizar
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     HISTORIAS
-========================================================= -->
-
-<section class="section stories-section"
-         id="historias">
-
-    <div class="container">
-
-        <div class="section-heading centered">
-
-            <div class="section-kicker">
-
-                <span></span>
-
-                HISTORIAS QUE DEJAN HUELLA
-
-            </div>
-
-
-            <h2>
-
-                A veces un pequeño gesto
-                <em>se queda para siempre.</em>
-
-            </h2>
-
-
-            <p>
-
-                Detrás de cada visita hay una persona.
-                Y detrás de cada persona puede haber una historia.
-
-            </p>
-
-        </div>
-
-
-        <div class="stories-grid">
-
-
-            <article class="story-card">
-
-                <div class="story-icon">
-                    💛
-                </div>
-
-                <p>
-                    "Hoy llegué preocupado y una simple sonrisa
-                    consiguió que me marchara mucho mejor
-                    de lo que llegué."
-                </p>
-
-                <div class="story-author">
-                    Cliente anónimo
-                </div>
-
-            </article>
-
-
-            <article class="story-card story-card-featured">
-
-                <div class="story-icon">
-                    😊
-                </div>
-
-                <p>
-                    "Me atendieron con paciencia y educación
-                    cuando realmente lo necesitaba."
-                </p>
-
-                <div class="story-author">
-                    Comentario recibido
-                </div>
-
-            </article>
-
-
-            <article class="story-card">
-
-                <div class="story-icon">
-                    🤝
-                </div>
-
-                <p>
-                    "Humanizar una estación de servicio parece
-                    algo pequeño... hasta que eres tú quien
-                    necesita ese gesto."
-                </p>
-
-                <div class="story-author">
-                    Visitante
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     LLAMADA FINAL
-========================================================= -->
-
-<section class="final-section">
-
-    <div class="final-glow"></div>
-
-    <div class="container">
-
-        <div class="final-content">
-
-            <div class="final-emoji">
-                😊
-            </div>
-
-            <h2>
-                ¿Y si empezamos
-                <em>hoy?</em>
-            </h2>
-
-            <p>
-
-                Cada persona que entra por la puerta
-                merece ser recibida con respeto,
-                cercanía y una sonrisa.
-
-            </p>
-
-
-            <a href="#contacto"
-               class="btn btn-primary btn-large">
-
-                Quiero aportar mi idea
-
-                <i class="bi bi-arrow-up-right"></i>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CONTACTO
-========================================================= -->
-
-<section class="section contact-section"
-         id="contacto">
-
-    <div class="container">
-
-        <div class="contact-layout">
-
-
-            <div class="contact-info">
-
-                <div class="section-kicker">
-
-                    <span></span>
-
-                    HABLEMOS
-
-                </div>
-
-
-                <h2>
-
-                    Tu opinión
-                    <em>importa.</em>
-
-                </h2>
-
-
-                <p>
-
-                    Cuéntanos qué necesitas, qué mejorarías
-                    o qué te gustaría encontrar en nuestra estación.
-
-                    Estamos aquí para escucharte.
-
-                </p>
-
-
-                <div class="contact-promise">
-
-                    <div class="promise-icon">
-                        💛
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Todas las ideas cuentan.
-                        </strong>
-
-                        <span>
-                            Incluso las que parecen pequeñas.
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="contact-details">
-
-                    <div class="contact-detail">
-
-                        <i class="bi bi-envelope"></i>
-
-                        <div>
-
-                            <small>
-                                EMAIL
-                            </small>
-
-                            <span>
-                                capisurtidor@gmail.com
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="contact-detail">
-
-                        <i class="bi bi-globe2"></i>
-
-                        <div>
-
-                            <small>
-                                WEB
-                            </small>
-
-                            <span>
-                                sonrieyhumaniza.es
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- FORMULARIO
-                 La funcionalidad EmailJS se añadirá
-                 en la Entrega 1B.
-            -->
-
-            <div class="contact-form-wrapper">
-
-                <form id="contactForm"
-                      class="contact-form">
-
-
-                    <div class="form-header">
-
-                        <span class="form-number">
-                            01
-                        </span>
-
-                        <div>
-
-                            <h3>
-                                Comparte tu idea
-                            </h3>
-
-                            <p>
-                                Solo necesitamos unos minutos.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="nombre">
-                            ¿Cómo te llamas?
-                        </label>
-
-                        <input type="text"
-                               id="nombre"
-                               name="nombre"
-                               placeholder="Tu nombre"
-                               autocomplete="name">
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="email">
-                            ¿Dónde podemos responderte?
-                        </label>
-
-                        <input type="email"
-                               id="email"
-                               name="email"
-                               placeholder="tu@email.com"
-                               autocomplete="email">
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label>
-                            ¿Qué te gustaría mejorar?
-                        </label>
-
-                        <div class="form-checkbox-grid">
-
-                            <label class="checkbox-option">
-
-                                <input type="checkbox"
-                                       name="categoria"
-                                       value="Productos">
-
-                                <span>
-                                    🛒 Productos
-                                </span>
-
-                            </label>
-
-
-                            <label class="checkbox-option">
-
-                                <input type="checkbox"
-                                       name="categoria"
-                                       value="Comida">
-
-                                <span>
-                                    🥪 Comida
-                                </span>
-
-                            </label>
-
-
-                            <label class="checkbox-option">
-
-                                <input type="checkbox"
-                                       name="categoria"
-                                       value="Servicios">
-
-                                <span>
-                                    🚗 Servicios
-                                </span>
-
-                            </label>
-
-
-                            <label class="checkbox-option">
-
-                                <input type="checkbox"
-                                       name="categoria"
-                                       value="Atención">
-
-                                <span>
-                                    😊 Atención
-                                </span>
-
-                            </label>
-
-
-                            <label class="checkbox-option">
-
-                                <input type="checkbox"
-                                       name="categoria"
-                                       value="Promociones">
-
-                                <span>
-                                    🎁 Promociones
-                                </span>
-
-                            </label>
-
-
-                            <label class="checkbox-option">
-
-                                <input type="checkbox"
-                                       name="categoria"
-                                       value="Otro">
-
-                                <span>
-                                    ✨ Otro
-                                </span>
-
-                            </label>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="producto">
-                            ¿Qué producto echas de menos?
-                        </label>
-
-                        <input type="text"
-                               id="producto"
-                               name="producto"
-                               placeholder="Por ejemplo: un producto concreto...">
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="servicio">
-                            ¿Qué servicio añadirías?
-                        </label>
-
-                        <input type="text"
-                               id="servicio"
-                               name="servicio"
-                               placeholder="Cuéntanos tu idea...">
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="mensaje">
-                            Cuéntanos tu propuesta
-                        </label>
-
-                        <textarea id="mensaje"
-                                  name="mensaje"
-                                  rows="5"
-                                  placeholder="No hace falta que sea una gran idea. Cuéntanos qué mejorarías..."></textarea>
-
-                    </div>
-
-
-                    <div class="form-rating">
-
-                        <span>
-                            ¿Cómo valorarías tu experiencia?
-                        </span>
-
-                        <div class="rating-stars">
-
-                            <button type="button"
-                                    data-rating="1"
-                                    aria-label="1 estrella">
-                                ★
-                            </button>
-
-                            <button type="button"
-                                    data-rating="2"
-                                    aria-label="2 estrellas">
-                                ★
-                            </button>
-
-                            <button type="button"
-                                    data-rating="3"
-                                    aria-label="3 estrellas">
-                                ★
-                            </button>
-
-                            <button type="button"
-                                    data-rating="4"
-                                    aria-label="4 estrellas">
-                                ★
-                            </button>
-
-                            <button type="button"
-                                    data-rating="5"
-                                    aria-label="5 estrellas">
-                                ★
-                            </button>
-
-                        </div>
-
-                        <input type="hidden"
-                               id="valoracion"
-                               name="valoracion"
-                               value="">
-
-                    </div>
-
-
-                    <div class="form-consent">
-
-                        <label>
-
-                            <input type="checkbox"
-                                   id="rgpd"
-                                   name="rgpd"
-                                   required>
-
-                            <span>
-
-                                He leído y acepto la política de privacidad
-                                y autorizo el tratamiento de mis datos para
-                                responder a mi consulta.
-
-                            </span>
-
-                        </label>
-
-                    </div>
-
-
-                    <button type="submit"
-                            class="btn btn-primary btn-submit"
-                            id="submitBtn">
-
-                        Enviar mi propuesta
-
-                        <i class="bi bi-arrow-up-right"></i>
-
-                    </button>
-
-
-                    <p id="respuesta"
-                       class="form-response"
-                       aria-live="polite">
-                    </p>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-</main>
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer class="site-footer">
-
-    <div class="container">
-
-        <div class="footer-main">
-
-
-            <div class="footer-brand">
-
-                <a href="#inicio"
-                   class="brand footer-logo">
-
-                    <span class="brand-symbol">
-                        😊
-                    </span>
-
-                    <span class="brand-name">
-                        Sonríe
-                        <strong>y Humaniza</strong>
-                    </span>
-
-                </a>
-
-
-                <p>
-
-                    Una iniciativa para recordar que
-                    una estación de servicio también puede
-                    ser un lugar donde las personas se sientan
-                    escuchadas, respetadas y tratadas con cercanía.
-
-                </p>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Explora
-                </h4>
-
-                <a href="#inicio">
-                    Inicio
-                </a>
-
-                <a href="#filosofia">
-                    Filosofía
-                </a>
-
-                <a href="#estacion">
-                    Nuestra estación
-                </a>
-
-                <a href="#ideas">
-                    Tu idea
-                </a>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Participa
-                </h4>
-
-                <a href="#ideas">
-                    Comparte una idea
-                </a>
-
-                <a href="#historias">
-                    Historias
-                </a>
-
-                <a href="#contacto">
-                    Contacto
-                </a>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Contacto
-                </h4>
-
-                <a href="mailto:capisurtidor@gmail.com">
-                    capisurtidor@gmail.com
-                </a>
-
-                <span>
-                    Sonríe y Humaniza
-                </span>
-
-                <span class="footer-coming">
-                    www.sonrieyhumaniza.es
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <span>
-                © 2026 Sonríe y Humaniza
-            </span>
-
-            <span>
-                Hecho para las personas 💛
-            </span>
-
-        </div>
-
-    </div>
+</div>
 
 </footer>
 
+<!-- Bootstrap -->
 
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="js/script.js"></script>
+<!-- EmailJS -->
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+/* Sonríe y Humaniza · selección de necesidades de la estación */
+document.querySelectorAll(".idea-option").forEach(function(option) {
+    option.addEventListener("click", function() {
+        const checkbox = option.querySelector(".necesidad-check");
+        if (!checkbox) return;
+
+        setTimeout(function() {
+            option.classList.toggle("selected", checkbox.checked);
+
+            const seleccionadas = Array.from(
+                document.querySelectorAll(".necesidad-check:checked")
+            ).map(function(item) {
+                return item.value;
+            });
+
+            const destino = document.getElementById("necesidadesSeleccionadas");
+            if (destino) {
+                destino.value = seleccionadas.join(", ");
+            }
+        }, 0);
+    });
+});
+
+</script>
+
+<script>
+
+emailjs.init({
+
+publicKey:"1H4tg07C5GaF8y_qD"
+
+});
+
+
+
+</script>
 
 </body>
+
 </html>
