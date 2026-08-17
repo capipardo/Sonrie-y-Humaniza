@@ -1380,7 +1380,38 @@ publicKey:"1H4tg07C5GaF8y_qD"
 });
 
 
+const formulario = document.getElementById("contactForm");
+const boton = document.getElementById("submitBtn");
+const respuesta = document.getElementById("respuesta");
 
+if (formulario) {
+    formulario.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        boton.disabled = true;
+        boton.innerHTML = "Enviando...";
+
+        emailjs.sendForm(
+            "service_m254vnq",
+            "template_1cphle0",
+            this
+        )
+        .then(function() {
+            respuesta.innerHTML = "✅ ¡Muchas gracias! Hemos recibido correctamente tu comentario.";
+            respuesta.className = "text-center text-success fw-bold mt-4";
+            formulario.reset();
+        })
+        .catch(function(error) {
+            console.error("Error EmailJS:", error);
+            respuesta.innerHTML = "❌ No ha sido posible enviar el comentario. Inténtalo de nuevo.";
+            respuesta.className = "text-center text-danger fw-bold mt-4";
+        })
+        .finally(function() {
+            boton.disabled = false;
+            boton.innerHTML = "💛 Enviar comentario";
+        });
+    });
+}
 </script>
 
 </body>
