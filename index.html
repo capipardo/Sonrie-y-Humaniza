@@ -1392,8 +1392,10 @@ if (formulario) {
         boton.innerHTML = "Enviando...";
 
         emailjs.sendForm(
-            "service_m254vnq",
-            "template_1cphle0",
+    "service_m254vnq",
+    "template_1cphleo",
+    this
+)
             this
         )
         .then(function() {
