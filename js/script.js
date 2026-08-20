@@ -408,52 +408,79 @@ document.addEventListener("DOMContentLoaded", () => {
        FORMULARIO · PREPARACIÓN
     ===================================================== */
 
-    const contactForm =
-        document.getElementById("contactForm");
+  // =========================================
+// FORMULARIO DE CONTACTO - EMAILJS
+// =========================================
 
-    const responseMessage =
-        document.getElementById("respuesta");
+emailjs.init({
+    publicKey: "v3io8_j43X4t7whz3"
+});
 
-    if (contactForm) {
+const contactForm = document.getElementById("contactForm");
+const responseMessage = document.getElementById("respuesta");
+const submitBtn = document.getElementById("submitBtn");
 
-        contactForm.addEventListener(
-            "submit",
-            event => {
+if (contactForm) {
 
-                event.preventDefault();
+    contactForm.addEventListener("submit", function (event) {
 
-                if (!responseMessage) return;
+        event.preventDefault();
 
+        if (!responseMessage) return;
 
-                const consent =
-                    document.getElementById("rgpd");
+        const consent = document.getElementById("rgpd");
 
+        if (consent && !consent.checked) {
 
-                if (
-                    consent &&
-                    !consent.checked
-                ) {
+            responseMessage.textContent =
+                "Por favor, acepta la política de privacidad.";
 
-                    responseMessage.textContent =
-                        "Por favor, acepta la política de privacidad.";
+            responseMessage.className =
+                "form-response error";
 
-                    responseMessage.className =
-                        "form-response error";
+            return;
+        }
 
-                    return;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "Enviando...";
 
-                }
+        emailjs.sendForm(
+            "service_m254vng",
+            "template_1cphleo",
+            contactForm
+        )
+        .then(function () {
 
+            responseMessage.textContent =
+                "¡Gracias por tu aportación! Tu mensaje se ha enviado correctamente.";
 
-                responseMessage.textContent =
-                    "Tu propuesta está preparada para enviarse. " +
-                    "La conexión con EmailJS se activará en la siguiente entrega.";
+            responseMessage.className =
+                "form-response success";
 
-                responseMessage.className =
-                    "form-response success";
+            contactForm.reset();
 
-            }
-        );
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "💛 Enviar comentario";
+
+        })
+        .catch(function (error) {
+
+            console.error("Error EmailJS:", error);
+
+            responseMessage.textContent =
+                "No ha sido posible enviar el comentario. Inténtalo de nuevo.";
+
+            responseMessage.className =
+                "form-response error";
+
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "💛 Enviar comentario";
+
+        });
+
+    });
+
+}
 
     }
 
