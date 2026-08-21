@@ -413,7 +413,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // =========================================
 
 emailjs.init({
-   publicKey: "1H4tg07C5GaF8y_qD"
+   publicKey: "v3io8_j43X4t7whz3"
 });
 
 const contactForm = document.getElementById("contactForm");
