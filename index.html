@@ -3,1419 +3,2011 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Sonríe y Humaniza | Pequeños gestos. Grandes personas.</title>
+    <title>Sonríe y Humaniza | Pequeños gestos. Grandes personas.</title>
 
-<meta name="description"
-content="Sonríe y Humaniza es una iniciativa para fomentar la amabilidad, el respeto y la cercanía en las estaciones de servicio.">
+    <meta name="description"
+        content="Sonríe y Humaniza es una iniciativa para fomentar la amabilidad, el respeto y la cercanía en las estaciones de servicio.">
 
-<meta name="keywords"
-content="sonríe, humaniza, estación de servicio, amabilidad, empatía, clientes">
+    <meta name="keywords"
+        content="Sonríe y Humaniza, estación de servicio, amabilidad, empatía, atención al cliente, experiencia">
 
-<meta name="author"
-content="Sonríe y Humaniza">
+    <meta name="author" content="Sonríe y Humaniza">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="theme-color" content="#0f172a">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 
-<link rel="stylesheet" href="css/styles.css">
+    <style>
 
-<style>
+        /* =====================================================
+           SONRÍE Y HUMANIZA · DISEÑO PRINCIPAL
+        ===================================================== */
 
-body{
+        :root {
+            --dark: #0f172a;
+            --dark-soft: #172238;
+            --yellow: #f5b301;
+            --yellow-light: #ffd95a;
+            --cream: #fffaf0;
+            --light: #f6f8fb;
+            --text: #243044;
+            --muted: #64748b;
+            --white: #ffffff;
+            --green: #198754;
+            --shadow: 0 18px 50px rgba(15, 23, 42, .10);
+            --radius: 24px;
+        }
 
-font-family:'Inter',sans-serif;
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
 
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-.hero{
+        a {
+            text-decoration: none;
+        }
 
-height:100vh;
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
 
-background:
+        .navbar {
+            background: rgba(255, 255, 255, .96);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 4px 25px rgba(15, 23, 42, .07);
+            padding: 14px 0;
+        }
 
-linear-gradient(rgba(15,23,42,.72),rgba(15,23,42,.72)),
+        .navbar-brand {
+            color: var(--dark) !important;
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -.4px;
+        }
 
-url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80");
+        .brand-dot {
+            display: inline-flex;
+            width: 38px;
+            height: 38px;
+            align-items: center;
+            justify-content: center;
+            background: var(--yellow);
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 6px 15px rgba(245, 179, 1, .25);
+        }
 
-background-size:cover;
+        .nav-link {
+            color: var(--dark) !important;
+            font-weight: 600;
+            font-size: .92rem;
+            margin-left: 12px;
+            position: relative;
+            transition: .25s ease;
+        }
 
-background-position:center;
+        .nav-link:hover {
+            color: #b47d00 !important;
+        }
 
-display:flex;
+        .nav-cta {
+            background: var(--dark);
+            color: white !important;
+            border-radius: 50px;
+            padding: 9px 18px !important;
+        }
 
-align-items:center;
+        .nav-cta:hover {
+            background: var(--yellow);
+            color: var(--dark) !important;
+        }
 
-justify-content:center;
+        /* =====================================================
+           HERO
+        ===================================================== */
 
-text-align:center;
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background:
+                linear-gradient(115deg, rgba(15, 23, 42, .96), rgba(15, 23, 42, .72)),
+                url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=2000&q=85");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
 
-color:white;
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: rgba(245, 179, 1, .12);
+            right: -150px;
+            bottom: -180px;
+            filter: blur(5px);
+        }
 
-}
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
 
-.hero h1{
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(245, 179, 1, .15);
+            border: 1px solid rgba(245, 179, 1, .35);
+            color: var(--yellow-light);
+            padding: 9px 17px;
+            border-radius: 50px;
+            font-size: .82rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-font-size:4rem;
+        .hero h1 {
+            font-size: clamp(3.2rem, 7vw, 6.5rem);
+            line-height: .98;
+            letter-spacing: -4px;
+            font-weight: 800;
+            margin: 28px 0;
+        }
 
-font-weight:800;
+        .hero h1 span {
+            color: var(--yellow);
+        }
 
-}
+        .hero-lead {
+            font-size: clamp(1.1rem, 2vw, 1.45rem);
+            max-width: 760px;
+            color: rgba(255, 255, 255, .86);
+            font-weight: 400;
+        }
 
-.hero p{
+        .hero-subtitle {
+            margin-top: 18px;
+            color: rgba(255, 255, 255, .65);
+            font-size: .98rem;
+        }
 
-font-size:1.4rem;
+        .btn-humaniza {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            background: var(--yellow);
+            color: var(--dark);
+            font-weight: 800;
+            padding: 15px 27px;
+            border-radius: 60px;
+            border: 2px solid var(--yellow);
+            transition: .3s ease;
+            box-shadow: 0 12px 30px rgba(245, 179, 1, .22);
+        }
 
-max-width:750px;
+        .btn-humaniza:hover {
+            background: var(--yellow-light);
+            border-color: var(--yellow-light);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 17px 35px rgba(245, 179, 1, .3);
+        }
 
-margin:auto;
+        .btn-outline-humaniza {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 27px;
+            border-radius: 60px;
+            border: 1px solid rgba(255,255,255,.35);
+            color: white;
+            font-weight: 700;
+            transition: .3s ease;
+        }
 
-}
+        .btn-outline-humaniza:hover {
+            background: white;
+            color: var(--dark);
+        }
 
-.btn-humaniza{
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+            margin-top: 34px;
+        }
 
-background:#f5b301;
+        /* =====================================================
+           GENERAL
+        ===================================================== */
 
-color:#0f172a;
+        section {
+            position: relative;
+        }
 
-font-weight:700;
+        .section-padding {
+            padding: 105px 0;
+        }
 
-padding:18px 40px;
+        .section-kicker {
+            display: inline-block;
+            color: #a87500;
+            background: #fff3c4;
+            border-radius: 50px;
+            padding: 7px 14px;
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: 1.1px;
+        }
 
-border-radius:60px;
+        .section-title {
+            color: var(--dark);
+            font-size: clamp(2rem, 4vw, 3.25rem);
+            line-height: 1.12;
+            letter-spacing: -1.7px;
+            font-weight: 800;
+        }
 
-transition:.3s;
+        .section-text {
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
 
-text-decoration:none;
+        /* =====================================================
+           MISIÓN
+        ===================================================== */
 
-}
+        .mission {
+            background: var(--white);
+        }
 
-.btn-humaniza:hover{
+        .mission-image {
+            width: 100%;
+            height: 540px;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+        }
 
-background:#ffd24d;
+        .mission-highlight {
+            margin-top: 28px;
+            padding: 22px 25px;
+            background: var(--cream);
+            border-left: 5px solid var(--yellow);
+            border-radius: 12px;
+            color: var(--dark);
+            font-weight: 600;
+        }
 
-transform:translateY(-3px);
+        /* =====================================================
+           VALORES
+        ===================================================== */
 
-}
+        .values {
+            background: var(--light);
+        }
 
-.navbar{
+        .value-card {
+            background: white;
+            border: 1px solid rgba(15,23,42,.05);
+            border-radius: var(--radius);
+            padding: 35px;
+            height: 100%;
+            box-shadow: 0 10px 35px rgba(15,23,42,.05);
+            transition: .3s ease;
+        }
 
-background:white;
+        .value-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow);
+        }
 
-box-shadow:0 3px 20px rgba(0,0,0,.08);
+        .value-icon {
+            width: 68px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            background: #fff4c8;
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
 
-}
+        .value-card h3 {
+            color: var(--dark);
+            font-weight: 800;
+        }
 
-.navbar-brand{
+        .value-card p {
+            color: var(--muted);
+            margin-bottom: 0;
+        }
 
-font-weight:800;
+        /* =====================================================
+           FRASE CENTRAL
+        ===================================================== */
 
-color:#0f172a!important;
+        .statement {
+            background: var(--yellow);
+            overflow: hidden;
+        }
 
-}
+        .statement::before {
+            content: "“";
+            position: absolute;
+            font-size: 300px;
+            line-height: 1;
+            color: rgba(255,255,255,.18);
+            left: 3%;
+            top: -70px;
+            font-weight: 800;
+        }
 
-.nav-link{
+        .statement h2 {
+            position: relative;
+            z-index: 2;
+            max-width: 950px;
+            margin: auto;
+            font-size: clamp(2rem, 4vw, 3.7rem);
+            line-height: 1.15;
+            letter-spacing: -1.8px;
+            font-weight: 800;
+            color: var(--dark);
+        }
 
-font-weight:600;
+        .statement p {
+            position: relative;
+            z-index: 2;
+            color: rgba(15,23,42,.65);
+            font-weight: 700;
+        }
 
-margin-left:20px;
+        /* =====================================================
+           PARTICIPA
+        ===================================================== */
 
-}
+        .participate {
+            background: white;
+        }
 
-</style>
+        .participate-intro {
+            max-width: 820px;
+            margin: auto;
+        }
+
+        .step-card {
+            position: relative;
+            background: var(--dark);
+            color: white;
+            padding: 35px;
+            border-radius: var(--radius);
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .step-number {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 5rem;
+            line-height: 1;
+            font-weight: 800;
+            color: rgba(255,255,255,.06);
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .step-card h3 {
+            font-weight: 800;
+        }
+
+        .step-card p {
+            color: rgba(255,255,255,.68);
+            margin-bottom: 0;
+        }
+
+        /* =====================================================
+           NECESIDADES
+        ===================================================== */
+
+        .ideas {
+            background: var(--dark);
+            color: white;
+        }
+
+        .ideas .section-title {
+            color: white;
+        }
+
+        .ideas .section-text {
+            color: rgba(255,255,255,.68);
+        }
+
+        .idea-option {
+            display: block;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 18px;
+            background: rgba(255,255,255,.045);
+            cursor: pointer;
+            transition: .25s ease;
+            height: 100%;
+        }
+
+        .idea-option:hover {
+            background: rgba(245,179,1,.09);
+            border-color: rgba(245,179,1,.4);
+            transform: translateY(-3px);
+        }
+
+        .idea-option.selected {
+            background: rgba(245,179,1,.14);
+            border-color: var(--yellow);
+            box-shadow: 0 0 0 2px rgba(245,179,1,.12);
+        }
+
+        .idea-option strong {
+            font-size: 1rem;
+        }
+
+        .idea-option p {
+            color: rgba(255,255,255,.58);
+            font-size: .9rem;
+        }
+
+        .idea-callout {
+            background: rgba(245,179,1,.1);
+            border: 1px solid rgba(245,179,1,.2);
+            padding: 22px;
+            border-radius: 18px;
+            margin-top: 25px;
+            color: rgba(255,255,255,.8);
+        }
+
+        .idea-callout strong {
+            color: var(--yellow-light);
+        }
+
+        /* =====================================================
+           HISTORIAS
+        ===================================================== */
+
+        .stories {
+            background: var(--light);
+        }
+
+        .story-card {
+            background: white;
+            padding: 35px;
+            border-radius: var(--radius);
+            height: 100%;
+            box-shadow: 0 10px 35px rgba(15,23,42,.05);
+            position: relative;
+        }
+
+        .story-quote {
+            font-size: 3rem;
+            color: var(--yellow);
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .story-card p {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .story-author {
+            font-size: .9rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        /* =====================================================
+           GALERÍA
+        ===================================================== */
+
+        .gallery-image {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 22px;
+            transition: .4s ease;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 22px;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.04);
+        }
+
+        /* =====================================================
+           CONTACTO
+        ===================================================== */
+
+        .contact {
+            background: var(--cream);
+        }
+
+        .contact-box {
+            background: white;
+            border-radius: 30px;
+            padding: clamp(25px, 5vw, 55px);
+            box-shadow: var(--shadow);
+        }
+
+        .form-label {
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .form-control {
+            border: 1px solid #dbe1e8;
+            border-radius: 14px;
+            padding: 14px 16px;
+            background: #fbfcfe;
+            transition: .2s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--yellow);
+            box-shadow: 0 0 0 4px rgba(245,179,1,.13);
+            background: white;
+        }
+
+        .privacy-text {
+            color: var(--muted);
+            font-size: .88rem;
+        }
+
+        #respuesta {
+            min-height: 28px;
+        }
+
+        /* =====================================================
+           CTA FINAL
+        ===================================================== */
+
+        .final-cta {
+            background:
+                linear-gradient(120deg, rgba(15,23,42,.98), rgba(23,34,56,.94));
+            color: white;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            letter-spacing: -2px;
+            font-weight: 800;
+        }
+
+        .final-cta p {
+            max-width: 720px;
+            margin: 20px auto 0;
+            color: rgba(255,255,255,.7);
+            font-size: 1.1rem;
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #090f1d;
+            color: white;
+        }
+
+        .footer-brand {
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        footer p,
+        footer li {
+            color: rgba(255,255,255,.58);
+        }
+
+        footer a {
+            color: rgba(255,255,255,.65);
+            transition: .2s ease;
+        }
+
+        footer a:hover {
+            color: var(--yellow);
+        }
+
+        .footer-line {
+            border-color: rgba(255,255,255,.1);
+        }
+
+        /* =====================================================
+           ANIMACIONES
+        ===================================================== */
+
+        .fade-up {
+            animation: fadeUp .8s ease both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 991px) {
+
+            .navbar-collapse {
+                background: white;
+                padding: 15px;
+                border-radius: 15px;
+                margin-top: 12px;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-link {
+                margin-left: 0;
+                padding: 10px !important;
+            }
+
+            .nav-cta {
+                display: inline-block;
+                margin-top: 8px;
+            }
+
+            .hero {
+                min-height: 850px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2.5px;
+            }
+
+            .mission-image {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 575px) {
+
+            .section-padding {
+                padding: 75px 0;
+            }
+
+            .hero {
+                min-height: 760px;
+                background-position: 60% center;
+            }
+
+            .hero h1 {
+                font-size: 3.15rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-humaniza,
+            .btn-outline-humaniza {
+                width: 100%;
+            }
+
+            .mission-image {
+                height: 330px;
+            }
+
+            .gallery-image {
+                height: 260px;
+            }
+
+            .contact-box {
+                padding: 24px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
 <nav class="navbar navbar-expand-lg fixed-top">
 
-<div class="container">
+    <div class="container">
 
-<a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#inicio">
+            <span class="brand-dot">😊</span>
+            Sonríe y Humaniza
+        </a>
 
-😊 Sonríe y Humaniza
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu"
+                aria-controls="menu"
+                aria-expanded="false"
+                aria-label="Abrir menú">
 
-</a>
+            <span class="navbar-toggler-icon"></span>
 
-<button class="navbar-toggler"
+        </button>
 
-type="button"
+        <div class="collapse navbar-collapse" id="menu">
 
-data-bs-toggle="collapse"
+            <ul class="navbar-nav ms-auto align-items-lg-center">
 
-data-bs-target="#menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="#mision">
+                        Nuestra misión
+                    </a>
+                </li>
 
-<span class="navbar-toggler-icon"></span>
+                <li class="nav-item">
+                    <a class="nav-link" href="#valores">
+                        Valores
+                    </a>
+                </li>
 
-</button>
+                <li class="nav-item">
+                    <a class="nav-link" href="#participa">
+                        Participa
+                    </a>
+                </li>
 
-<div class="collapse navbar-collapse"
+                <li class="nav-item">
+                    <a class="nav-link" href="#ideas">
+                        Tu experiencia
+                    </a>
+                </li>
 
-id="menu">
+                <li class="nav-item">
+                    <a class="nav-link nav-cta" href="#contacto">
+                        💛 Contactar
+                    </a>
+                </li>
 
-<ul class="navbar-nav ms-auto">
+            </ul>
 
-<li class="nav-item">
+        </div>
 
-<a class="nav-link"
-
-href="#inicio">
-
-Inicio
-
-</a>
-
-</li>
-
-<li class="nav-item">
-
-<a class="nav-link"
-
-href="#mision">
-
-Nuestra misión
-
-</a>
-
-</li>
-
-<li class="nav-item">
-
-<a class="nav-link"
-
-href="#participa">
-
-Participa
-
-</a>
-
-</li>
-
-<li class="nav-item">
-
-<a class="nav-link"
-
-href="#ayudarte">
-
-¿Cómo podemos ayudarte?
-
-</a>
-
-</li>
-
-<li class="nav-item">
-
-<a class="nav-link"
-
-href="#contacto">
-
-Contacto
-
-</a>
-
-</li>
-
-</ul>
-
-</div>
-
-</div>
+    </div>
 
 </nav>
 
-<section class="hero"
 
-id="inicio">
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-<div class="container">
+<section class="hero" id="inicio">
 
-<h1>
+    <div class="container">
 
-Sonríe y Humaniza
+        <div class="hero-content fade-up">
 
-</h1>
+            <span class="hero-kicker">
+                💛 Movimiento Sonríe y Humaniza
+            </span>
 
-<p class="mt-4">
+            <h1>
+                Detrás de cada
+                <span>repostaje</span>
+                hay una persona.
+            </h1>
 
-Una sonrisa puede durar unos segundos...
+            <p class="hero-lead">
+                Queremos hacer de las estaciones de servicio lugares
+                más humanos, cercanos y agradables para todos.
+            </p>
 
-pero un gesto amable puede acompañar a una persona durante toda la vida.
+            <p class="hero-subtitle">
+                Porque a veces un pequeño gesto puede cambiar mucho más de lo que imaginamos.
+            </p>
 
-</p>
+            <div class="hero-actions">
 
-<div class="mt-5">
+                <a href="#contacto" class="btn-humaniza">
+                    💛 Quiero participar
+                </a>
 
-<a href="#participa"
+                <a href="#mision" class="btn-outline-humaniza">
+                    Conoce el proyecto
+                </a>
 
-class="btn-humaniza">
+            </div>
 
-💛 Quiero participar
+        </div>
 
-</a>
-
-</div>
-
-</div>
-
-</section>
-<!-- ===========================
-NUESTRA MISIÓN
-============================ -->
-
-<section id="mision" class="py-5 bg-white">
-
-<div class="container">
-
-<div class="row align-items-center g-5">
-
-<div class="col-lg-6">
-
-<span class="badge bg-warning text-dark mb-3 p-2">
-
-MOVIMIENTO SONRÍE Y HUMANIZA
-
-</span>
-
-<h2 class="display-5 fw-bold mb-4">
-
-Cada pequeño gesto puede cambiar el día de una persona.
-
-</h2>
-
-<p class="lead text-secondary">
-
-En una estación de servicio pasan cientos de personas cada día.
-
-Muchas llegan con prisas, preocupaciones o simplemente con la mente en otro lugar.
-
-</p>
-
-<p class="text-secondary">
-
-Creemos que una sonrisa, un saludo amable o una atención cercana pueden transformar una experiencia cotidiana en un momento positivo.
-
-Sonríe y Humaniza nace para recordar que detrás de cada repostaje hay personas con historias diferentes.
-
-</p>
-
-<div class="mt-4">
-
-<a href="#participa" class="btn btn-warning btn-lg rounded-pill px-4">
-
-Quiero sumarme
-
-</a>
-
-</div>
-
-</div>
-
-<div class="col-lg-6">
-
-<img
-
-src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80"
-
-class="img-fluid rounded-4 shadow-lg"
-
-alt="Personas sonriendo">
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<!-- ===========================
-VALORES
-============================ -->
 
-<section class="py-5 bg-light">
+<!-- =====================================================
+     MISIÓN
+===================================================== -->
 
-<div class="container">
+<section id="mision" class="mission section-padding">
 
-<div class="text-center mb-5">
+    <div class="container">
 
-<h2 class="fw-bold">
+        <div class="row align-items-center g-5">
 
-Nuestros valores
+            <div class="col-lg-6">
 
-</h2>
+                <span class="section-kicker">
+                    NUESTRA MISIÓN
+                </span>
 
-<p class="text-secondary">
+                <h2 class="section-title mt-3">
+                    Hacer más humana una experiencia cotidiana.
+                </h2>
 
-Pequeños gestos capaces de generar grandes cambios.
+                <p class="section-text mt-4">
+                    En una estación de servicio coinciden cada día
+                    cientos de personas diferentes.
+                </p>
 
-</p>
+                <p class="section-text">
+                    Personas que tienen prisa, que están cansadas,
+                    que necesitan ayuda, que trabajan allí o que
+                    simplemente pasan durante unos minutos.
+                </p>
 
-</div>
+                <p class="section-text">
+                    Sonríe y Humaniza nace de una idea sencilla:
+                    <strong>poner a las personas en el centro.</strong>
+                </p>
 
-<div class="row g-4">
+                <div class="mission-highlight">
+                    Una sonrisa, un saludo, escuchar con atención
+                    o tratar a alguien con respeto pueden parecer
+                    pequeños gestos. Pero no lo son para quien los recibe.
+                </div>
 
-<div class="col-md-4">
+            </div>
 
-<div class="card border-0 shadow h-100 rounded-4">
+            <div class="col-lg-6">
 
-<div class="card-body p-5 text-center">
+                <img
+                    src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=85"
+                    class="mission-image"
+                    alt="Personas compartiendo un momento cercano"
+                    loading="lazy">
 
-<div style="font-size:55px;">😊</div>
+            </div>
 
-<h4 class="mt-4">
+        </div>
 
-Sonríe
-
-</h4>
-
-<p class="text-secondary">
-
-Una sonrisa sincera puede convertirse en el mejor comienzo para el día de otra persona.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="card border-0 shadow h-100 rounded-4">
-
-<div class="card-body p-5 text-center">
-
-<div style="font-size:55px;">🤝</div>
-
-<h4 class="mt-4">
-
-Conecta
-
-</h4>
-
-<p class="text-secondary">
-
-Escuchar, respetar y atender con cercanía crea relaciones más humanas.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="card border-0 shadow h-100 rounded-4">
-
-<div class="card-body p-5 text-center">
-
-<div style="font-size:55px;">❤️</div>
-
-<h4 class="mt-4">
-
-Humaniza
-
-</h4>
-
-<p class="text-secondary">
-
-Nuestro objetivo es hacer que cada visita a una estación sea una experiencia más agradable.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===========================
-ESTADÍSTICAS
-============================ -->
-
-<section class="py-5 text-white" style="background:#0F172A;">
-
-<div class="container">
-
-<div class="row text-center">
-
-<div class="col-md-3">
-
-<h2 class="display-4 fw-bold">
-
-+500
-
-</h2>
-
-<p>
-
-Clientes atendidos cada día
-
-</p>
-
-</div>
-
-<div class="col-md-3">
-
-<h2 class="display-4 fw-bold">
-
-100%
-
-</h2>
-
-<p>
-
-Compromiso
-
-</p>
-
-</div>
-
-<div class="col-md-3">
-
-<h2 class="display-4 fw-bold">
-
-∞
-
-</h2>
-
-<p>
-
-Pequeños gestos
-
-</p>
-
-</div>
-
-<div class="col-md-3">
-
-<h2 class="display-4 fw-bold">
-
-1
-
-</h2>
-
-<p>
-
-Objetivo común
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-<!-- ==========================================
-PARTICIPA
-========================================== -->
-
-<section id="participa" class="py-5">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<span class="badge bg-warning text-dark px-3 py-2">
-
-SÚMATE AL MOVIMIENTO
-
-</span>
-
-<h2 class="display-5 fw-bold mt-3">
-
-Todos podemos hacer más humana una estación de servicio.
-
-</h2>
-
-<p class="lead text-secondary">
-
-No hace falta hacer grandes cosas.
-
-Una sonrisa, una palabra amable o un gesto de respeto pueden marcar la diferencia.
-
-</p>
-
-</div>
-
-<div class="row g-4">
-
-<div class="col-lg-4">
-
-<div class="card border-0 shadow rounded-4 h-100">
-
-<div class="card-body text-center p-5">
-
-<div style="font-size:60px;">
-
-😊
-
-</div>
-
-<h4 class="mt-4">
-
-Sonríe
-
-</h4>
-
-<p class="text-secondary">
-
-Una sonrisa sincera transmite cercanía y genera confianza.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-lg-4">
-
-<div class="card border-0 shadow rounded-4 h-100">
-
-<div class="card-body text-center p-5">
-
-<div style="font-size:60px;">
-
-💬
-
-</div>
-
-<h4 class="mt-4">
-
-Escucha
-
-</h4>
-
-<p class="text-secondary">
-
-Cada persona tiene una historia.
-
-Escuchar también es una forma de ayudar.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-lg-4">
-
-<div class="card border-0 shadow rounded-4 h-100">
-
-<div class="card-body text-center p-5">
-
-<div style="font-size:60px;">
-
-❤️
-
-</div>
-
-<h4 class="mt-4">
-
-Humaniza
-
-</h4>
-
-<p class="text-secondary">
-
-Los pequeños gestos crean grandes experiencias.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
+<!-- =====================================================
+     VALORES
+===================================================== -->
 
-<!-- ==========================================
-CÓMO PODEMOS AYUDARTE · NECESIDADES DE LA ESTACIÓN
-========================================== -->
+<section id="valores" class="values section-padding">
 
-<section id="ayudarte" class="py-5 ideas-section">
+    <div class="container">
 
-<div class="container py-4">
+        <div class="text-center mb-5">
 
-<div class="section-heading text-center">
+            <span class="section-kicker">
+                NUESTRA FORMA DE ENTENDERLO
+            </span>
 
-<span class="section-kicker">TU EXPERIENCIA CUENTA</span>
+            <h2 class="section-title mt-3">
+                Tres palabras. Una misma idea.
+            </h2>
 
-<h2 class="mt-3">
+            <p class="section-text mx-auto mt-3" style="max-width:700px;">
+                No pretendemos cambiar el mundo de golpe.
+                Queremos empezar por la forma en la que nos tratamos.
+            </p>
 
-¿Cómo podemos hacer que tu visita a la estación sea mejor?
+        </div>
 
-</h2>
 
-<p class="mx-auto">
+        <div class="row g-4">
 
-Queremos conocer necesidades reales de las personas que utilizan una estación de servicio.
-Cuéntanos qué echas en falta, qué mejorarías o qué servicio te facilitaría las cosas.
+            <div class="col-md-4">
 
-</p>
+                <div class="value-card">
 
-</div>
+                    <div class="value-icon">
+                        😊
+                    </div>
 
-<div class="row justify-content-center">
+                    <h3>
+                        Sonríe
+                    </h3>
 
-<div class="col-xl-10">
+                    <p>
+                        Una sonrisa sincera puede romper la distancia
+                        y convertir una interacción cotidiana en un
+                        momento agradable.
+                    </p>
 
-<div class="ideas-options">
+                </div>
 
-<label class="idea-option">
+            </div>
 
-<input type="checkbox" name="necesidad[]" value="Servicio o producto que actualmente no hay" class="visually-hidden necesidad-check">
 
-<strong>➕ Algo que actualmente no tenemos</strong>
+            <div class="col-md-4">
 
-<p class="mt-2 mb-0 text-white-50">
+                <div class="value-card">
 
-Un producto, servicio o recurso que te gustaría encontrar en la estación.
+                    <div class="value-icon">
+                        🤝
+                    </div>
 
-</p>
+                    <h3>
+                        Conecta
+                    </h3>
 
-</label>
+                    <p>
+                        Escuchar, respetar y prestar atención también
+                        son formas de cuidar. Cada persona merece
+                        sentirse tratada como persona.
+                    </p>
 
-<label class="idea-option">
+                </div>
 
-<input type="checkbox" name="necesidad[]" value="Mejora de la atención" class="visually-hidden necesidad-check">
+            </div>
 
-<strong>🤝 Mejorar la atención</strong>
 
-<p class="mt-2 mb-0 text-white-50">
+            <div class="col-md-4">
 
-Una forma diferente de atenderte o ayudarte durante tu visita.
+                <div class="value-card">
 
-</p>
+                    <div class="value-icon">
+                        ❤️
+                    </div>
 
-</label>
+                    <h3>
+                        Humaniza
+                    </h3>
 
-<label class="idea-option">
+                    <p>
+                        Detrás de cada cliente y de cada trabajador
+                        hay una historia. Recordarlo puede cambiar
+                        nuestra manera de relacionarnos.
+                    </p>
 
-<input type="checkbox" name="necesidad[]" value="Mejora de instalaciones" class="visually-hidden necesidad-check">
+                </div>
 
-<strong>🏪 Mejorar las instalaciones</strong>
+            </div>
 
-<p class="mt-2 mb-0 text-white-50">
+        </div>
 
-Cambios en tienda, aseos, accesos, zona de descanso u otros espacios.
-
-</p>
-
-</label>
-
-<label class="idea-option">
-
-<input type="checkbox" name="necesidad[]" value="Accesibilidad o comodidad" class="visually-hidden necesidad-check">
-
-<strong>♿ Más accesibilidad y comodidad</strong>
-
-<p class="mt-2 mb-0 text-white-50">
-
-Algo que haga más sencilla y cómoda la visita para todas las personas.
-
-</p>
-
-</label>
-
-<label class="idea-option">
-
-<input type="checkbox" name="necesidad[]" value="Nuevo servicio" class="visually-hidden necesidad-check">
-
-<strong>💡 Un nuevo servicio</strong>
-
-<p class="mt-2 mb-0 text-white-50">
-
-Una idea que creas que tendría utilidad para los clientes.
-
-</p>
-
-</label>
-
-<label class="idea-option">
-
-<input type="checkbox" name="necesidad[]" value="Otra sugerencia" class="visually-hidden necesidad-check">
-
-<strong>💬 Otra sugerencia</strong>
-
-<p class="mt-2 mb-0 text-white-50">
-
-Si es algo diferente, también queremos escucharlo.
-
-</p>
-
-</label>
-
-</div>
-
-<div class="idea-callout">
-
-<p>
-
-<strong>Lo más importante:</strong> no buscamos respuestas perfectas.
-Queremos saber qué necesitas tú como cliente.
-
-</p>
-
-</div>
-
-<div class="contact-form-wrapper mt-4">
-
-<h3 class="fw-bold mb-3" style="color:#102a2d;">
-
-Cuéntanos tu idea
-
-</h3>
-
-<p class="mb-4" style="color:#6b7f81;">
-
-¿Qué pedirías o qué cambiarías dentro de una estación de servicio para que tu experiencia fuera mejor?
-
-</p>
-
-<textarea id="necesidadTexto"
-class="form-control"
-rows="5"
-placeholder="Por ejemplo: me gustaría encontrar..., echo en falta..., sería útil que..."></textarea>
-
-<div class="mt-4">
-
-<a href="#contacto" class="btn btn-warning btn-lg rounded-pill px-5">
-
-💛 Enviar mi propuesta
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ==========================================
-FRASE CENTRAL
-========================================== -->
-
-<section class="py-5 bg-warning">
-
-<div class="container text-center">
-
-<h2 class="display-4 fw-bold">
-
-"La mejor energía que podemos ofrecer no sale del surtidor.
-
-Sale de las personas."
-
-</h2>
-
-<p class="lead mt-4">
-
-Movimiento Sonríe y Humaniza
-
-</p>
-
-</div>
-
-</section>
-<!-- ==========================================
-HISTORIAS QUE DEJAN HUELLA
-========================================== -->
-
-<section class="py-5 bg-light">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<span class="badge bg-warning text-dark px-3 py-2">
-
-HISTORIAS REALES
-
-</span>
-
-<h2 class="display-5 fw-bold mt-3">
-
-Historias que dejan huella
-
-</h2>
-
-<p class="lead text-secondary">
-
-Un pequeño gesto puede quedarse para siempre en la memoria de alguien.
-
-</p>
-
-</div>
-
-<div class="row g-4">
-
-<div class="col-lg-4">
-
-<div class="card border-0 shadow rounded-4 h-100">
-
-<div class="card-body p-4">
-
-<div class="mb-3" style="font-size:40px;">💛</div>
-
-<p class="fst-italic">
-
-"Hoy llegué preocupado y una simple sonrisa consiguió que me marchara mucho mejor de lo que llegué."
-
-</p>
-
-<hr>
-
-<strong>Cliente anónimo</strong>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-lg-4">
-
-<div class="card border-0 shadow rounded-4 h-100">
-
-<div class="card-body p-4">
-
-<div class="mb-3" style="font-size:40px;">😊</div>
-
-<p class="fst-italic">
-
-"Me atendieron con paciencia y educación cuando realmente lo necesitaba. Gracias por demostrar que aún quedan personas así."
-
-</p>
-
-<hr>
-
-<strong>Comentario recibido</strong>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-lg-4">
-
-<div class="card border-0 shadow rounded-4 h-100">
-
-<div class="card-body p-4">
-
-<div class="mb-3" style="font-size:40px;">🤝</div>
-
-<p class="fst-italic">
-
-"Humanizar una estación de servicio parece algo pequeño... hasta que eres tú quien necesita ese gesto."
-
-</p>
-
-<hr>
-
-<strong>Visitante</strong>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
+<!-- =====================================================
+     FRASE CENTRAL
+===================================================== -->
 
-<!-- ==========================================
-GALERÍA
-========================================== -->
+<section class="statement section-padding">
 
-<section class="py-5">
+    <div class="container text-center">
 
-<div class="container">
+        <h2>
+            “La mejor energía que podemos ofrecer
+            no sale del surtidor.
+            Sale de las personas.”
+        </h2>
 
-<div class="text-center mb-5">
+        <p class="mt-4">
+            Movimiento Sonríe y Humaniza
+        </p>
 
-<h2 class="display-5 fw-bold">
-
-La humanidad también se vive
-
-</h2>
-
-<p class="lead text-secondary">
-
-Cada imagen representa una actitud, una forma de atender y una manera de cuidar de las personas.
-
-</p>
-
-</div>
-
-<div class="row g-4">
-
-<div class="col-md-4">
-
-<img
-src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80"
-class="img-fluid rounded-4 shadow"
-alt="Personas sonriendo">
-
-</div>
-
-<div class="col-md-4">
-
-<img
-src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
-class="img-fluid rounded-4 shadow"
-alt="Atención al cliente">
-
-</div>
-
-<div class="col-md-4">
-
-<img
-src="https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=900&q=80"
-class="img-fluid rounded-4 shadow"
-alt="Compañerismo">
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
+<!-- =====================================================
+     PARTICIPA
+===================================================== -->
 
-<!-- ==========================================
-LLAMADA FINAL
-========================================== -->
+<section id="participa" class="participate section-padding">
 
-<section class="py-5 text-white"
-style="background:#0F172A;">
+    <div class="container">
 
-<div class="container text-center">
+        <div class="participate-intro text-center mb-5">
 
-<h2 class="display-4 fw-bold">
+            <span class="section-kicker">
+                SÚMATE AL MOVIMIENTO
+            </span>
 
-¿Y si empezamos hoy?
+            <h2 class="section-title mt-3">
+                Todos podemos hacer una estación un poco más humana.
+            </h2>
 
-</h2>
+            <p class="section-text mt-3">
+                No hace falta hacer grandes cosas.
+                A veces la diferencia empieza con algo tan sencillo
+                como sonreír, escuchar o tratar a alguien con respeto.
+            </p>
 
-<p class="lead mt-4">
+        </div>
 
-Cada cliente que entra por la puerta merece ser recibido con respeto, cercanía y una sonrisa.
 
-La diferencia empieza con nosotros.
+        <div class="row g-4">
 
-</p>
+            <div class="col-lg-4">
 
-<a href="#contacto"
-class="btn btn-warning btn-lg rounded-pill mt-4 px-5">
+                <div class="step-card">
 
-💛 Quiero unirme al movimiento
+                    <span class="step-number">01</span>
 
-</a>
+                    <div class="step-icon">
+                        😊
+                    </div>
 
-</div>
+                    <h3>
+                        Sonríe
+                    </h3>
 
-</section>
-<!-- ==========================================
-CONTACTO
-========================================== -->
+                    <p>
+                        Un pequeño gesto de cercanía puede cambiar
+                        el tono de toda una conversación.
+                    </p>
 
-<section id="contacto" class="py-5 bg-white">
+                </div>
 
-<div class="container">
+            </div>
 
-<div class="text-center mb-5">
 
-<span class="badge bg-warning text-dark px-3 py-2">
+            <div class="col-lg-4">
 
-CONTACTA CON NOSOTROS
+                <div class="step-card">
 
-</span>
+                    <span class="step-number">02</span>
 
-<h2 class="display-5 fw-bold mt-3">
+                    <div class="step-icon">
+                        👂
+                    </div>
 
-Tu opinión también puede cambiar las cosas
+                    <h3>
+                        Escucha
+                    </h3>
 
-</h2>
+                    <p>
+                        Cada persona tiene una historia.
+                        Escuchar también es una forma de ayudar.
+                    </p>
 
-<p class="lead text-secondary">
+                </div>
 
-Cuéntanos qué necesitas, qué echas en falta o qué mejorarías dentro de la estación de servicio.<br>
+            </div>
 
-Puedes hacerlo con total libertad: tu experiencia nos ayuda a detectar oportunidades de mejora.<br>
 
-<strong>¡Muchas gracias por tu aportación!</strong>
+            <div class="col-lg-4">
 
-</p>
+                <div class="step-card">
 
-</div>
+                    <span class="step-number">03</span>
 
-<div class="row justify-content-center">
+                    <div class="step-icon">
+                        💛
+                    </div>
 
-<div class="col-lg-8">
+                    <h3>
+                        Humaniza
+                    </h3>
 
-<form id="contactForm" class="bg-light rounded-4 shadow p-5">
+                    <p>
+                        Convierte una experiencia cotidiana
+                        en una experiencia un poco mejor.
+                    </p>
 
-<div class="row">
+                </div>
 
-<div class="col-md-6 mb-4">
+            </div>
 
-<label class="form-label fw-semibold">
+        </div>
 
-Nombre
-
-</label>
-
-<input
-
-type="text"
-
-class="form-control form-control-lg"
-
-name="nombre"
-
-required>
-
-</div>
-
-<div class="col-md-6 mb-4">
-
-<label class="form-label fw-semibold">
-
-Correo electrónico
-
-</label>
-
-<input
-
-type="email"
-
-class="form-control form-control-lg"
-
-name="email"
-
-required>
-
-</div>
-
-</div>
-
-<div class="mb-4">
-
-<label class="form-label fw-semibold">
-
-Teléfono
-
-</label>
-
-<input
-
-type="tel"
-
-class="form-control form-control-lg"
-
-name="telefono">
-
-</div>
-
-<div class="mb-4">
-
-<label class="form-label fw-semibold">
-
-Cuéntanos tu experiencia
-
-</label>
-
-<textarea
-
-class="form-control"
-
-rows="6"
-
-name="mensaje"
-
-required
-
-placeholder="Cuéntanos qué mejorarías, qué echas en falta o cómo podríamos ayudarte dentro de la estación."></textarea>
-
-<input type="hidden" name="necesidades" id="necesidadesSeleccionadas">
-
-</div>
-
-<div class="form-check mb-4">
-
-<input
-
-class="form-check-input"
-
-type="checkbox"
-
-required
-
-id="rgpd">
-
-<label class="form-check-label"
-
-for="rgpd">
-
-He leído y acepto la política de privacidad y autorizo el tratamiento de mis datos para responder a mi consulta.
-
-</label>
-
-</div>
-
-<div class="d-grid">
-
-<button
-
-id="submitBtn"
-
-class="btn btn-warning btn-lg rounded-pill"
-
-type="submit">
-
-💛 Enviar comentario
-
-</button>
-
-</div>
-
-<p
-
-id="respuesta"
-
-class="text-center fw-bold mt-4">
-
-</p>
-
-</form>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<!-- ==========================================
-FOOTER
-========================================== -->
 
-<footer class="text-white py-5" style="background:#0F172A;">
+<!-- =====================================================
+     IDEAS / NECESIDADES
+===================================================== -->
 
-<div class="container">
+<section id="ideas" class="ideas section-padding">
 
-<div class="row">
+    <div class="container">
 
-<div class="col-lg-6">
+        <div class="text-center mb-5">
 
-<h3 class="fw-bold">
+            <span class="section-kicker">
+                TU EXPERIENCIA CUENTA
+            </span>
 
-😊 Sonríe y Humaniza
+            <h2 class="section-title mt-3">
+                ¿Qué mejorarías de una estación de servicio?
+            </h2>
 
-</h3>
+            <p class="section-text mx-auto mt-3"
+               style="max-width:760px;">
+                Queremos conocer necesidades reales.
+                Puede ser algo pequeño, algo que echas en falta
+                o una idea que creas que podría mejorar la experiencia.
+            </p>
 
-<p class="mt-3">
+        </div>
 
-Una iniciativa creada para recordar que una estación de servicio también puede ser un lugar donde las personas se sientan escuchadas, respetadas y tratadas con cercanía.
 
-</p>
+        <div class="row g-3">
 
-</div>
+            <div class="col-md-6">
 
-<div class="col-lg-3">
+                <label class="idea-option">
 
-<h5>
+                    <input
+                        type="checkbox"
+                        name="necesidad[]"
+                        value="Servicio o producto que actualmente no hay"
+                        class="visually-hidden necesidad-check">
 
-Enlaces
+                    <strong>
+                        ➕ Algo que actualmente no tenemos
+                    </strong>
 
-</h5>
+                    <p class="mt-2 mb-0">
+                        Un producto, servicio o recurso que te gustaría encontrar.
+                    </p>
 
-<ul class="list-unstyled">
+                </label>
 
-<li><a href="#inicio" class="text-white text-decoration-none">Inicio</a></li>
+            </div>
 
-<li><a href="#mision" class="text-white text-decoration-none">Nuestra misión</a></li>
 
-<li><a href="#participa" class="text-white text-decoration-none">Participa</a></li>
+            <div class="col-md-6">
 
-<li><a href="#contacto" class="text-white text-decoration-none">Contacto</a></li>
+                <label class="idea-option">
 
-</ul>
+                    <input
+                        type="checkbox"
+                        name="necesidad[]"
+                        value="Mejora de la atención"
+                        class="visually-hidden necesidad-check">
 
-</div>
+                    <strong>
+                        🤝 Mejorar la atención
+                    </strong>
 
-<div class="col-lg-3">
+                    <p class="mt-2 mb-0">
+                        Una forma diferente de atenderte o ayudarte.
+                    </p>
 
-<h5>
+                </label>
 
-Contacto
+            </div>
 
-</h5>
 
-<p>
+            <div class="col-md-6">
 
-📧 capisurtidor@gmail.com
+                <label class="idea-option">
 
-</p>
+                    <input
+                        type="checkbox"
+                        name="necesidad[]"
+                        value="Mejora de instalaciones"
+                        class="visually-hidden necesidad-check">
 
-<p>
+                    <strong>
+                        🏪 Mejorar las instalaciones
+                    </strong>
 
-🌍 Próximamente:<br>
+                    <p class="mt-2 mb-0">
+                        Cambios en tienda, aseos, accesos,
+                        descanso u otros espacios.
+                    </p>
 
-<strong>www.sonrieyhumaniza.es</strong>
+                </label>
 
-</p>
+            </div>
 
-</div>
 
-</div>
+            <div class="col-md-6">
 
-<hr class="my-4">
+                <label class="idea-option">
 
-<div class="text-center">
+                    <input
+                        type="checkbox"
+                        name="necesidad[]"
+                        value="Accesibilidad o comodidad"
+                        class="visually-hidden necesidad-check">
 
-<p class="mb-2">
+                    <strong>
+                        ♿ Más accesibilidad y comodidad
+                    </strong>
 
-© 2026 Sonríe y Humaniza · Todos los derechos reservados.
+                    <p class="mt-2 mb-0">
+                        Algo que haga más sencilla la visita para todos.
+                    </p>
 
-</p>
+                </label>
 
-<p class="fst-italic text-warning">
+            </div>
 
-"Gracias por ayudarnos a demostrar que la humanidad también se comparte en una estación de servicio."
 
-</p>
+            <div class="col-md-6">
 
-</div>
+                <label class="idea-option">
 
-</div>
+                    <input
+                        type="checkbox"
+                        name="necesidad[]"
+                        value="Nuevo servicio"
+                        class="visually-hidden necesidad-check">
+
+                    <strong>
+                        💡 Un nuevo servicio
+                    </strong>
+
+                    <p class="mt-2 mb-0">
+                        Una idea que creas que tendría utilidad.
+                    </p>
+
+                </label>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <label class="idea-option">
+
+                    <input
+                        type="checkbox"
+                        name="necesidad[]"
+                        value="Otra sugerencia"
+                        class="visually-hidden necesidad-check">
+
+                    <strong>
+                        💬 Otra sugerencia
+                    </strong>
+
+                    <p class="mt-2 mb-0">
+                        Si es diferente, también queremos escucharla.
+                    </p>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div class="idea-callout mt-4">
+
+            <strong>Lo más importante:</strong>
+            no buscamos respuestas perfectas.
+            Queremos saber qué necesitas tú como cliente.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HISTORIAS
+===================================================== -->
+
+<section class="stories section-padding">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-kicker">
+                EL VALOR DE UN GESTO
+            </span>
+
+            <h2 class="section-title mt-3">
+                Historias que dejan huella
+            </h2>
+
+            <p class="section-text mx-auto mt-3"
+               style="max-width:700px;">
+                Porque detrás de una buena experiencia
+                muchas veces hay un gesto que alguien decidió tener.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+
+                <div class="story-card">
+
+                    <div class="story-quote">
+                        “
+                    </div>
+
+                    <p class="mt-3">
+                        Hoy llegué preocupado y una simple sonrisa
+                        consiguió que me marchara mucho mejor
+                        de lo que llegué.
+                    </p>
+
+                    <div class="story-author mt-4">
+                        Cliente anónimo
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <div class="story-card">
+
+                    <div class="story-quote">
+                        “
+                    </div>
+
+                    <p class="mt-3">
+                        Me atendieron con paciencia y educación
+                        cuando realmente lo necesitaba.
+                        Gracias por demostrar que aún quedan personas así.
+                    </p>
+
+                    <div class="story-author mt-4">
+                        Comentario recibido
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <div class="story-card">
+
+                    <div class="story-quote">
+                        “
+                    </div>
+
+                    <p class="mt-3">
+                        Humanizar una estación de servicio parece algo
+                        pequeño... hasta que eres tú quien necesita ese gesto.
+                    </p>
+
+                    <div class="story-author mt-4">
+                        Visitante
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GALERÍA
+===================================================== -->
+
+<section class="section-padding">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-kicker">
+                UNA ACTITUD
+            </span>
+
+            <h2 class="section-title mt-3">
+                La humanidad también se vive.
+            </h2>
+
+            <p class="section-text mx-auto mt-3"
+               style="max-width:760px;">
+                Cada gesto cuenta. Cada conversación cuenta.
+                Cada persona cuenta.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=85"
+                        class="gallery-image"
+                        alt="Personas compartiendo un momento cercano"
+                        loading="lazy">
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85"
+                        class="gallery-image"
+                        alt="Personas colaborando"
+                        loading="lazy">
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=900&q=85"
+                        class="gallery-image"
+                        alt="Personas compartiendo una experiencia"
+                        loading="lazy">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA FINAL
+===================================================== -->
+
+<section class="final-cta section-padding">
+
+    <div class="container text-center">
+
+        <span class="section-kicker">
+            EL CAMBIO EMPIEZA EN PEQUEÑO
+        </span>
+
+        <h2 class="mt-4">
+            ¿Y si empezamos hoy?
+        </h2>
+
+        <p>
+            Cada cliente que entra por la puerta merece ser recibido
+            con respeto, cercanía y una sonrisa.
+        </p>
+
+        <a href="#contacto" class="btn-humaniza mt-4">
+            💛 Quiero aportar mi idea
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACTO
+===================================================== -->
+
+<section id="contacto" class="contact section-padding">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-kicker">
+                PARTICIPA
+            </span>
+
+            <h2 class="section-title mt-3">
+                Tu opinión también puede cambiar las cosas.
+            </h2>
+
+            <p class="section-text mx-auto mt-3"
+               style="max-width:780px;">
+
+                Cuéntanos qué necesitas, qué echas en falta
+                o qué mejorarías dentro de una estación de servicio.
+
+                <br>
+
+                No buscamos respuestas perfectas.
+                <strong>Queremos escuchar experiencias reales.</strong>
+
+            </p>
+
+        </div>
+
+
+        <div class="row justify-content-center">
+
+            <div class="col-xl-8">
+
+                <div class="contact-box">
+
+                    <form id="contactForm">
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label">
+                                    Nombre
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control form-control-lg"
+                                    name="nombre"
+                                    placeholder="¿Cómo te llamas?"
+                                    required>
+
+                            </div>
+
+
+                            <div class="col-md-6 mb-4">
+
+                                <label class="form-label">
+                                    Correo electrónico
+                                </label>
+
+                                <input
+                                    type="email"
+                                    class="form-control form-control-lg"
+                                    name="email"
+                                    placeholder="tu@email.com"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Teléfono
+                                <span class="fw-normal text-secondary">
+                                    (opcional)
+                                </span>
+                            </label>
+
+                            <input
+                                type="tel"
+                                class="form-control form-control-lg"
+                                name="telefono"
+                                placeholder="Si quieres que podamos contactarte">
+
+                        </div>
+
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Cuéntanos tu experiencia
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                rows="6"
+                                name="mensaje"
+                                required
+                                placeholder="Cuéntanos qué mejorarías, qué echas en falta o qué haría más humana tu experiencia en una estación."></textarea>
+
+                            <input
+                                type="hidden"
+                                name="necesidades"
+                                id="necesidadesSeleccionadas">
+
+                        </div>
+
+
+                        <div class="form-check mb-4">
+
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                required
+                                id="rgpd">
+
+                            <label
+                                class="form-check-label privacy-text"
+                                for="rgpd">
+
+                                He leído y acepto la política de privacidad
+                                y autorizo el tratamiento de mis datos para
+                                responder a mi consulta.
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="d-grid">
+
+                            <button
+                                id="submitBtn"
+                                class="btn-humaniza border-0"
+                                type="submit">
+
+                                💛 Enviar comentario
+
+                            </button>
+
+                        </div>
+
+
+                        <p
+                            id="respuesta"
+                            class="text-center fw-bold mt-4 mb-0">
+                        </p>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="py-5">
+
+    <div class="container">
+
+        <div class="row g-5">
+
+            <div class="col-lg-6">
+
+                <div class="footer-brand">
+                    😊 Sonríe y Humaniza
+                </div>
+
+                <p class="mt-3 mb-0">
+
+                    Una iniciativa para recordar que una estación
+                    de servicio también puede ser un lugar donde
+                    las personas se sientan escuchadas, respetadas
+                    y tratadas con cercanía.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-sm-6 col-lg-3">
+
+                <h6 class="fw-bold mb-3">
+                    Explora
+                </h6>
+
+                <ul class="list-unstyled mb-0">
+
+                    <li class="mb-2">
+                        <a href="#inicio">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="#mision">
+                            Nuestra misión
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="#valores">
+                            Valores
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="#ideas">
+                            Tu experiencia
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-sm-6 col-lg-3">
+
+                <h6 class="fw-bold mb-3">
+                    Contacto
+                </h6>
+
+                <p class="mb-2">
+                    📧 capisurtidor@gmail.com
+                </p>
+
+                <p class="mb-0">
+                    🌍 Próximamente:
+                    <br>
+                    <strong class="text-white">
+                        sonrieyhumaniza.es
+                    </strong>
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <hr class="footer-line my-4">
+
+
+        <div class="d-flex flex-column flex-md-row
+                    justify-content-between
+                    align-items-md-center gap-3">
+
+            <p class="mb-0">
+                © 2026 Sonríe y Humaniza · Todos los derechos reservados.
+            </p>
+
+            <p class="mb-0 text-warning fw-semibold">
+                Pequeños gestos. Grandes personas.
+            </p>
+
+        </div>
+
+    </div>
 
 </footer>
 
-<!-- Bootstrap -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<!-- =====================================================
+     BOOTSTRAP
+===================================================== -->
 
-<!-- EmailJS -->
-
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<script>
-/* Sonríe y Humaniza · selección de necesidades de la estación */
-document.querySelectorAll(".idea-option").forEach(function(option) {
-    option.addEventListener("click", function() {
-        const checkbox = option.querySelector(".necesidad-check");
-        if (!checkbox) return;
-
-        setTimeout(function() {
-            option.classList.toggle("selected", checkbox.checked);
-
-            const seleccionadas = Array.from(
-                document.querySelectorAll(".necesidad-check:checked")
-            ).map(function(item) {
-                return item.value;
-            });
-
-            const destino = document.getElementById("necesidadesSeleccionadas");
-            if (destino) {
-                destino.value = seleccionadas.join(", ");
-            }
-        }, 0);
-    });
-});
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
 </script>
 
+
+<!-- =====================================================
+     EMAILJS
+     NO CAMBIAR ESTOS DATOS
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+
 <script>
 
-emailjs.init({
+    /*
+     * SONRÍE Y HUMANIZA
+     * Configuración EmailJS comprobada.
+     */
 
-publicKey:"v3io8_j43X4t7whz3"
+    emailjs.init({
+        publicKey: "v3io8_j43X4t7whz3"
+    });
 
-});
 
+    /*
+     * SELECCIÓN DE NECESIDADES
+     */
 
-const formulario = document.getElementById("contactForm");
-const boton = document.getElementById("submitBtn");
-const respuesta = document.getElementById("respuesta");
+    document.querySelectorAll(".idea-option").forEach(function(option) {
 
-if (formulario) {
-    formulario.addEventListener("submit", function(e) {
-        e.preventDefault();
+        option.addEventListener("click", function() {
 
-        boton.disabled = true;
-        boton.innerHTML = "Enviando...";
+            const checkbox =
+                option.querySelector(".necesidad-check");
 
-        emailjs.sendForm(
-    "service_m254vnq",
-    "template_1cphleo",
-  
+            if (!checkbox) return;
 
-            this
-        )
-        .then(function() {
-            respuesta.innerHTML = "✅ ¡Muchas gracias! Hemos recibido correctamente tu comentario.";
-            respuesta.className = "text-center text-success fw-bold mt-4";
-            formulario.reset();
-        })
-        .catch(function(error) {
-            console.error("Error EmailJS:", error);
-            respuesta.innerHTML = "❌ No ha sido posible enviar el comentario. Inténtalo de nuevo.";
-            respuesta.className = "text-center text-danger fw-bold mt-4";
-        })
-        .finally(function() {
-            boton.disabled = false;
-            boton.innerHTML = "💛 Enviar comentario";
+            setTimeout(function() {
+
+                option.classList.toggle(
+                    "selected",
+                    checkbox.checked
+                );
+
+                const seleccionadas =
+                    Array.from(
+                        document.querySelectorAll(
+                            ".necesidad-check:checked"
+                        )
+                    ).map(function(item) {
+
+                        return item.value;
+
+                    });
+
+                const destino =
+                    document.getElementById(
+                        "necesidadesSeleccionadas"
+                    );
+
+                if (destino) {
+
+                    destino.value =
+                        seleccionadas.join(", ");
+
+                }
+
+            }, 0);
+
         });
+
     });
-}
+
+
+    /*
+     * FORMULARIO DE CONTACTO
+     */
+
+    const formulario =
+        document.getElementById("contactForm");
+
+    const boton =
+        document.getElementById("submitBtn");
+
+    const respuesta =
+        document.getElementById("respuesta");
+
+
+    if (formulario) {
+
+        formulario.addEventListener(
+            "submit",
+            function(e) {
+
+                e.preventDefault();
+
+                boton.disabled = true;
+
+                boton.innerHTML =
+                    "⏳ Enviando...";
+
+
+                emailjs.sendForm(
+                    "service_m254vnq",
+                    "template_1cphleo",
+                    this
+                )
+
+                .then(function() {
+
+                    respuesta.innerHTML =
+                        "✅ ¡Muchas gracias! Hemos recibido correctamente tu comentario.";
+
+                    respuesta.className =
+                        "text-center text-success fw-bold mt-4";
+
+                    formulario.reset();
+
+
+                    document
+                        .querySelectorAll(".idea-option")
+                        .forEach(function(option) {
+
+                            option.classList.remove("selected");
+
+                        });
+
+                })
+
+                .catch(function(error) {
+
+                    console.error(
+                        "Error EmailJS:",
+                        error
+                    );
+
+                    respuesta.innerHTML =
+                        "❌ No ha sido posible enviar el comentario. Inténtalo de nuevo.";
+
+                    respuesta.className =
+                        "text-center text-danger fw-bold mt-4";
+
+                })
+
+                .finally(function() {
+
+                    boton.disabled = false;
+
+                    boton.innerHTML =
+                        "💛 Enviar comentario";
+
+                });
+
+            }
+        );
+
+    }
+
 </script>
-<script src="js/script.js"></script>
+
+
 </body>
 
 </html>
