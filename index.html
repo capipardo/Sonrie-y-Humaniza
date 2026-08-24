@@ -2293,7 +2293,101 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script>
+<!-- ==========================================
+BOTÓN WHATSAPP · SONRÍE Y HUMANIZA
+========================================== -->
 
+<a
+    id="whatsappButton"
+    href="https://wa.me/34660264486?text=Hola%2C%20contacto%20desde%20la%20web%20Sonr%C3%ADe%20y%20Humaniza."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+>
+    <span class="whatsapp-icon">💬</span>
+    <span class="whatsapp-text">WhatsApp</span>
+</a>
+
+<style>
+
+#whatsappButton {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 9998;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background: #25D366;
+    color: #ffffff;
+    text-decoration: none;
+
+    padding: 12px 18px;
+    border-radius: 999px;
+
+    font-weight: 700;
+    font-size: 14px;
+
+    box-shadow: 0 6px 20px rgba(0,0,0,.18);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+#whatsappButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 25px rgba(0,0,0,.25);
+    color: #ffffff;
+}
+
+.whatsapp-icon {
+    font-size: 19px;
+}
+
+@media (max-width: 600px) {
+
+    #whatsappButton {
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .whatsapp-text {
+        display: none;
+    }
+
+    .whatsapp-icon {
+        font-size: 22px;
+    }
+}
+
+</style>
+
+<script>
+
+document
+    .getElementById("whatsappButton")
+    .addEventListener("click", function () {
+
+        if (
+            typeof gtag === "function" &&
+            localStorage.getItem("sonrieHumanizaCookies") === "aceptadas"
+        ) {
+
+            gtag("event", "clic_whatsapp", {
+                event_category: "contacto",
+                event_label: "WhatsApp Sonríe y Humaniza"
+            });
+
+        }
+
+    });
+
+</script>
 </body>
 
 </html>
