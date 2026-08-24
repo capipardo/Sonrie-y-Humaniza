@@ -2044,7 +2044,250 @@
     }
 
 </script>
+<!-- ==========================================
+AVISO DE COOKIES · SONRÍE Y HUMANIZA
+========================================== -->
 
+<style>
+#cookieBanner {
+    position: fixed;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    max-width: 950px;
+    margin: auto;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 22px 26px;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(0,0,0,.25);
+    z-index: 99999;
+    display: none;
+}
+
+.cookie-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.cookie-text {
+    flex: 1;
+}
+
+.cookie-text strong {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 7px;
+}
+
+.cookie-text p {
+    margin: 0;
+    color: #dbe2ea;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cookie-btn {
+    border: none;
+    padding: 11px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.cookie-accept {
+    background: #f9b900;
+    color: #0f172a;
+}
+
+.cookie-reject {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #94a3b8;
+}
+
+#cookieSettings {
+    position: fixed;
+    left: 18px;
+    bottom: 18px;
+    z-index: 9998;
+    background: #ffffff;
+    color: #0f172a;
+    border: 1px solid #d7dde5;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,.10);
+}
+
+@media (max-width: 700px) {
+
+    #cookieBanner {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        padding: 20px;
+    }
+
+    .cookie-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cookie-buttons {
+        width: 100%;
+    }
+
+    .cookie-btn {
+        flex: 1;
+    }
+}
+</style>
+
+
+<div id="cookieBanner">
+
+    <div class="cookie-content">
+
+        <div class="cookie-text">
+
+            <strong>🍪 Tu privacidad también nos importa</strong>
+
+            <p>
+                Utilizamos cookies de análisis para conocer cómo se utiliza
+                Sonríe y Humaniza y seguir mejorando la experiencia.
+                Puedes aceptarlas o rechazarlas.
+            </p>
+
+        </div>
+
+        <div class="cookie-buttons">
+
+            <button
+                class="cookie-btn cookie-reject"
+                id="rechazarCookies">
+                Rechazar
+            </button>
+
+            <button
+                class="cookie-btn cookie-accept"
+                id="aceptarCookies">
+                Aceptar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<button id="cookieSettings">
+    🍪 Configurar cookies
+</button>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const banner =
+        document.getElementById("cookieBanner");
+
+    const aceptar =
+        document.getElementById("aceptarCookies");
+
+    const rechazar =
+        document.getElementById("rechazarCookies");
+
+    const ajustes =
+        document.getElementById("cookieSettings");
+
+    const decision =
+        localStorage.getItem("sonrieHumanizaCookies");
+
+
+    /* Si ya aceptó anteriormente */
+
+    if (decision === "aceptadas") {
+
+        cargarGoogleAnalytics();
+
+    }
+
+
+    /* Si todavía no ha decidido */
+
+    if (!decision) {
+
+        banner.style.display = "block";
+
+    }
+
+
+    /* ACEPTAR */
+
+    aceptar.addEventListener("click", function () {
+
+        localStorage.setItem(
+            "sonrieHumanizaCookies",
+            "aceptadas"
+        );
+
+        banner.style.display = "none";
+
+        cargarGoogleAnalytics();
+
+    });
+
+
+    /* RECHAZAR */
+
+    rechazar.addEventListener("click", function () {
+
+        localStorage.setItem(
+            "sonrieHumanizaCookies",
+            "rechazadas"
+        );
+
+        banner.style.display = "none";
+
+        gtag("consent", "update", {
+
+            analytics_storage: "denied",
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied"
+
+        });
+
+    });
+
+
+    /* Permitir cambiar la decisión posteriormente */
+
+    ajustes.addEventListener("click", function () {
+
+        localStorage.removeItem(
+            "sonrieHumanizaCookies"
+        );
+
+        banner.style.display = "block";
+
+    });
+
+});
+
+</script>
 
 </body>
 
