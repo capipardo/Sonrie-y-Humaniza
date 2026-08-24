@@ -2335,13 +2335,35 @@ BOTÓN WHATSAPP · SONRÍE Y HUMANIZA
     <span class="whatsapp-icon">💬</span>
     <span class="whatsapp-text">WhatsApp</span>
 </a>
+<!-- Instagram flotante -->
+<a
+    id="floatingInstagramLink"
+    class="social-float social-instagram"
+    href="https://www.instagram.com/sonrieyhumaniza/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram Sonríe y Humaniza"
+>
+    ◎
+</a>
 
+<!-- Facebook flotante -->
+<a
+    id="floatingFacebookLink"
+    class="social-float social-facebook"
+    href="https://www.facebook.com/profile.php?id=61593389596623"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook Sonríe y Humaniza"
+>
+    f
+</a>
 <style>
 
 #whatsappButton {
     position: fixed;
     right: 18px;
-    bottom: 18px;
+    bottom:138px;
     z-index: 9998;
 
     display: flex;
@@ -2392,7 +2414,50 @@ BOTÓN WHATSAPP · SONRÍE Y HUMANIZA
         font-size: 22px;
     }
 }
+.social-float {
+    position: fixed;
+    right: 18px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    z-index: 9998;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 24px;
+
+    box-shadow: 0 6px 20px rgba(0,0,0,.18);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.social-float:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 25px rgba(0,0,0,.25);
+    color: #ffffff;
+}
+
+.social-instagram {
+    bottom: 78px;
+    background: linear-gradient(
+        135deg,
+        #833ab4,
+        #fd1d1d,
+        #fcb045
+    );
+}
+
+.social-facebook {
+    bottom: 18px;
+    background: #1877F2;
+}
 </style>
 
 <script>
@@ -2440,6 +2505,37 @@ facebookLink.addEventListener("click", function () {
         gtag("event", "clic_facebook", {
             event_category: "redes_sociales",
             event_label: "Facebook Sonríe y Humaniza"
+        });
+    }
+});
+</script>
+   <script>
+const floatingInstagramLink =
+    document.getElementById("floatingInstagramLink");
+
+const floatingFacebookLink =
+    document.getElementById("floatingFacebookLink");
+
+floatingInstagramLink.addEventListener("click", function () {
+    if (
+        typeof gtag === "function" &&
+        localStorage.getItem("sonrieHumanizaCookies") === "aceptadas"
+    ) {
+        gtag("event", "clic_instagram", {
+            event_category: "redes_sociales",
+            event_label: "Instagram flotante"
+        });
+    }
+});
+
+floatingFacebookLink.addEventListener("click", function () {
+    if (
+        typeof gtag === "function" &&
+        localStorage.getItem("sonrieHumanizaCookies") === "aceptadas"
+    ) {
+        gtag("event", "clic_facebook", {
+            event_category: "redes_sociales",
+            event_label: "Facebook flotante"
         });
     }
 });
