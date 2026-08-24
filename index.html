@@ -1841,17 +1841,45 @@
                     Contacto
                 </h6>
 
-                <p class="mb-2">
-                    📧 sonrieyhumaniza@gmail.com
-                </p>
+               <p class="mb-2">
+    ✉️ sonrieyhumaniza@gmail.com
+</p>
 
-                <p class="mb-0">
-                    🌍 Próximamente:
-                    <br>
-                    <strong class="text-white">
-                        sonrieyhumaniza.es
-                    </strong>
-                </p>
+<p class="mb-2">
+    🌐
+    <a
+        href="https://sonrieyhumaniza.es"
+        class="text-white text-decoration-none"
+    >
+        sonrieyhumaniza.es
+    </a>
+</p>
+
+<p class="mb-2">
+    📷
+    <a
+        id="instagramLink"
+        href="https://www.instagram.com/sonrieyhumaniza/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white text-decoration-none"
+    >
+        Instagram · @sonrieyhumaniza
+    </a>
+</p>
+
+<p class="mb-0">
+    🔵
+    <a
+        id="facebookLink"
+        href="https://www.facebook.com/profile.php?id=61593389596623"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white text-decoration-none"
+    >
+        Facebook · Sonríe y Humaniza
+    </a>
+</p>
 
             </div>
 
@@ -2387,6 +2415,34 @@ document
 
     });
 
+</script>
+   <script>
+const instagramLink = document.getElementById("instagramLink");
+const facebookLink = document.getElementById("facebookLink");
+
+instagramLink.addEventListener("click", function () {
+    if (
+        typeof gtag === "function" &&
+        localStorage.getItem("sonrieHumanizaCookies") === "aceptadas"
+    ) {
+        gtag("event", "clic_instagram", {
+            event_category: "redes_sociales",
+            event_label: "Instagram Sonríe y Humaniza"
+        });
+    }
+});
+
+facebookLink.addEventListener("click", function () {
+    if (
+        typeof gtag === "function" &&
+        localStorage.getItem("sonrieHumanizaCookies") === "aceptadas"
+    ) {
+        gtag("event", "clic_facebook", {
+            event_category: "redes_sociales",
+            event_label: "Facebook Sonríe y Humaniza"
+        });
+    }
+});
 </script>
 </body>
 
