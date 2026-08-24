@@ -2000,7 +2000,12 @@
 
                     respuesta.className =
                         "text-center text-success fw-bold mt-4";
-
+if (typeof gtag === "function") {
+    gtag("event", "experiencia_enviada", {
+        event_category: "formulario",
+        event_label: "Formulario Sonríe y Humaniza"
+    });
+}
                     formulario.reset();
 
 
