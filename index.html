@@ -1736,33 +1736,11 @@
                             </label>
 
                         </div>
-
-
-                        <div class="d-grid">
-
-                            <button
-                                id="submitBtn"
-                                class="btn-humaniza border-0"
-                                type="submit">
-
-                                💛 Enviar comentario
-
-                            </button>
-
-                        </div>
-
-
-                        <p
-                            id="respuesta"
-                            class="text-center fw-bold mt-4 mb-0">
-                        </p>
 <!-- ==========================================
 SEGUNDA PREGUNTA · IDEAS PARA LA ESTACIÓN
 ========================================== -->
 
-<div id="preguntaMejora" class="pregunta-mejora mt-4" style="display:none;">
-
-    <div class="text-center mb-4">
+<div id="preguntaMejora" class="pregunta-mejora mt-4">
         <h4 class="fw-bold">
             💡 ¡Una última pregunta!
         </h4>
@@ -1815,19 +1793,14 @@ SEGUNDA PREGUNTA · IDEAS PARA LA ESTACIÓN
 
         <textarea
             id="textoMejora"
+           name="texto_mejora"
             class="form-control"
             rows="3"
             placeholder="Por ejemplo: me gustaría encontrar productos locales, un punto de recogida de paquetes, comida preparada..."
         ></textarea>
 
-        <input type="hidden" id="tipoMejora">
+       <input type="hidden" id="tipoMejora" name="tipo_mejora">
 
-        <button
-            type="button"
-            id="enviarMejora"
-            class="btn btn-humaniza w-100 mt-3">
-            💛 Enviar mi idea
-        </button>
 
         <p id="respuestaMejora"
            class="text-center fw-bold mt-3 mb-0">
@@ -1836,6 +1809,26 @@ SEGUNDA PREGUNTA · IDEAS PARA LA ESTACIÓN
     </div>
 
 </div>
+
+                        <div class="d-grid">
+
+                            <button
+                                id="submitBtn"
+                                class="btn-humaniza border-0"
+                                type="submit">
+
+                                💛 Enviar comentario
+
+                            </button>
+
+                        </div>
+
+
+                        <p
+                            id="respuesta"
+                            class="text-center fw-bold mt-4 mb-0">
+                        </p>
+
                        <style>
 .mejora-opciones {
     display: grid;
