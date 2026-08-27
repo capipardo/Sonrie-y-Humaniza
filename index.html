@@ -1836,6 +1836,66 @@ SEGUNDA PREGUNTA · IDEAS PARA LA ESTACIÓN
     </div>
 
 </div>
+                       <style>
+.mejora-opciones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.mejora-option {
+    border: 2px solid #e4e7ec;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.mejora-option:hover {
+    transform: translateY(-2px);
+    border-color: #ffbf00;
+}
+
+.mejora-option.selected {
+    background: #fff6d6;
+    border-color: #ffbf00;
+}
+
+@media (max-width: 600px) {
+    .mejora-opciones {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+                    
+
+<script>
+document.querySelectorAll(".mejora-option").forEach(function(boton) {
+
+    boton.addEventListener("click", function() {
+
+        document.querySelectorAll(".mejora-option").forEach(function(opcion) {
+            opcion.classList.remove("selected");
+        });
+
+        this.classList.add("selected");
+
+        document.getElementById("tipoMejora").value =
+            this.getAttribute("data-tipo");
+
+        document.getElementById("detalleMejora").style.display = "block";
+
+        document.getElementById("textoMejora").focus();
+
+    });
+
+});
+</script>
+
+
                     </form>
 
                 </div>
