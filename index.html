@@ -2153,15 +2153,13 @@ document.querySelectorAll(".mejora-option").forEach(function(boton) {
     this
 )
 
-                .then(function() {
+               .then(function() {
 
     respuesta.innerHTML =
         "✅ ¡Muchas gracias! Hemos recibido correctamente tu comentario.";
 
     respuesta.className =
         "text-center text-success fw-bold mt-4";
-
-    document.getElementById("preguntaMejora").style.display = "block";
 
     if (typeof gtag === "function") {
         gtag("event", "experiencia_enviada", {
@@ -2173,27 +2171,30 @@ document.querySelectorAll(".mejora-option").forEach(function(boton) {
     formulario.reset();
 
     document
-        .querySelectorAll(".idea-option")
+        .querySelectorAll(".mejora-option")
         .forEach(function(option) {
             option.classList.remove("selected");
         });
 
+    document.getElementById("detalleMejora").style.display = "none";
+
 })
-                    console.error(
-                        "Error EmailJS:",
-                        error
-                    );
 
-                    respuesta.innerHTML =
-                        "❌ No ha sido posible enviar el comentario. Inténtalo de nuevo.";
+.catch(function(error) {
 
-                    respuesta.className =
-                        "text-center text-danger fw-bold mt-4";
+    console.error(
+        "Error EmailJS:",
+        error
+    );
 
-                })
+    respuesta.innerHTML =
+        "❌ No ha sido posible enviar el comentario. Inténtalo de nuevo.";
 
-                .finally(function() {
+    respuesta.className =
+        "text-center text-danger fw-bold mt-4";
 
+})
+.finally(function() {
                     boton.disabled = false;
 
                     boton.innerHTML =
