@@ -1756,7 +1756,86 @@
                             id="respuesta"
                             class="text-center fw-bold mt-4 mb-0">
                         </p>
+<!-- ==========================================
+SEGUNDA PREGUNTA · IDEAS PARA LA ESTACIÓN
+========================================== -->
 
+<div id="preguntaMejora" class="pregunta-mejora mt-4" style="display:none;">
+
+    <div class="text-center mb-4">
+        <h4 class="fw-bold">
+            💡 ¡Una última pregunta!
+        </h4>
+
+        <p class="mb-2">
+            <strong>
+                ¿Qué te gustaría encontrar en una estación de servicio
+                que actualmente echas de menos?
+            </strong>
+        </p>
+
+        <p class="text-muted">
+            Tu idea puede ayudarnos a descubrir qué necesitan realmente los clientes.
+        </p>
+    </div>
+
+    <div class="mejora-opciones">
+
+        <button type="button"
+                class="mejora-option"
+                data-tipo="producto">
+            🛍️ Productos para la tienda
+        </button>
+
+        <button type="button"
+                class="mejora-option"
+                data-tipo="servicio">
+            🚗 Nuevos servicios
+        </button>
+
+        <button type="button"
+                class="mejora-option"
+                data-tipo="comida">
+            ☕ Comida y bebida
+        </button>
+
+        <button type="button"
+                class="mejora-option"
+                data-tipo="otro">
+            💡 Tengo otra idea
+        </button>
+
+    </div>
+
+    <div id="detalleMejora" class="mt-4" style="display:none;">
+
+        <label for="textoMejora" class="form-label fw-bold">
+            Cuéntanos un poquito más
+        </label>
+
+        <textarea
+            id="textoMejora"
+            class="form-control"
+            rows="3"
+            placeholder="Por ejemplo: me gustaría encontrar productos locales, un punto de recogida de paquetes, comida preparada..."
+        ></textarea>
+
+        <input type="hidden" id="tipoMejora">
+
+        <button
+            type="button"
+            id="enviarMejora"
+            class="btn btn-humaniza w-100 mt-3">
+            💛 Enviar mi idea
+        </button>
+
+        <p id="respuestaMejora"
+           class="text-center fw-bold mt-3 mb-0">
+        </p>
+
+    </div>
+
+</div>
                     </form>
 
                 </div>
@@ -2023,32 +2102,30 @@
 
                 .then(function() {
 
-                    respuesta.innerHTML =
-                        "✅ ¡Muchas gracias! Hemos recibido correctamente tu comentario.";
+    respuesta.innerHTML =
+        "✅ ¡Muchas gracias! Hemos recibido correctamente tu comentario.";
 
-                    respuesta.className =
-                        "text-center text-success fw-bold mt-4";
-if (typeof gtag === "function") {
-    gtag("event", "experiencia_enviada", {
-        event_category: "formulario",
-        event_label: "Formulario Sonríe y Humaniza"
-    });
-}
-                    formulario.reset();
+    respuesta.className =
+        "text-center text-success fw-bold mt-4";
 
+    document.getElementById("preguntaMejora").style.display = "block";
 
-                    document
-                        .querySelectorAll(".idea-option")
-                        .forEach(function(option) {
+    if (typeof gtag === "function") {
+        gtag("event", "experiencia_enviada", {
+            event_category: "formulario",
+            event_label: "Formulario Sonríe y Humaniza"
+        });
+    }
 
-                            option.classList.remove("selected");
+    formulario.reset();
 
-                        });
+    document
+        .querySelectorAll(".idea-option")
+        .forEach(function(option) {
+            option.classList.remove("selected");
+        });
 
-                })
-
-                .catch(function(error) {
-
+})
                     console.error(
                         "Error EmailJS:",
                         error
