@@ -2167,7 +2167,30 @@ document.querySelectorAll(".mejora-option").forEach(function(boton) {
             event_label: "Formulario Sonríe y Humaniza"
         });
     }
+// =============================================
+// GUARDAR PARTICIPACIÓN EN GOOGLE SHEETS
+// =============================================
 
+const datosSheets = {
+    nombre: formulario.querySelector('[name="nombre"]')?.value || "",
+    email: formulario.querySelector('[name="email"]')?.value || "",
+    telefono: formulario.querySelector('[name="telefono"]')?.value || "",
+    mensaje: formulario.querySelector('[name="mensaje"]')?.value || "",
+    tipo_mejora: formulario.querySelector('[name="tipo_mejora"]')?.value || "",
+    texto_mejora: formulario.querySelector('[name="texto_mejora"]')?.value || ""
+};
+
+fetch("https://script.google.com/macros/s/AKfycbznydyEY44-bDY1H_hdFCEygtJ9Yu7O8wtYgxSQ5oTrm6KMBfVVWW1Rpoc9jiL7Xujs/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+    },
+    body: JSON.stringify(datosSheets)
+})
+.catch(function(error) {
+    console.error("Error al guardar en Google Sheets:", error);
+});
     formulario.reset();
 
     document
