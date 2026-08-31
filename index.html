@@ -2750,35 +2750,48 @@ if (tipoContacto === 'empresa') {
     asuntoRespuesta.value =
         '💛 Gracias por interesarte en Sonríe y Humaniza';
 
-    mensajeRespuesta.value =
-        'Hola ' + (formulario.querySelector('[name="nombre"]')?.value || '') + ',\n\n' +
-        'Gracias por tu interés en Sonríe y Humaniza.\n' +
-        'Hemos recibido correctamente tu solicitud de información sobre ' +
-        planInteres +
-        '.\n\n' +
-        'Nos pondremos en contacto contigo para conocer mejor tu empresa y explicarte cómo podemos adaptar Sonríe y Humaniza a tus necesidades.\n\n' +
-        'Nuestro objetivo es ayudarte a escuchar a tus clientes, organizar sus propuestas y convertir cada comentario en información útil para mejorar tu negocio.\n\n' +
-        'Gracias por confiar en una forma más humana de escuchar a tus clientes. 💛\n\n' +
-        'Un abrazo,\n' +
-        'Equipo Sonríe y Humaniza\n' +
-        'sonrieyhumaniza.es';
+   mensajeRespuesta.value =
+    '<p>💛 <strong>Hola ' + (formulario.querySelector('[name="nombre"]')?.value || '') + ',</strong></p>' +
 
-} else {
+    '<p>¡Gracias por interesarte en <strong>Sonríe y Humaniza</strong>!</p>' +
+
+    '<p>Hemos recibido correctamente tu solicitud de información sobre <strong>' +
+    planInteres +
+    '</strong>.</p>' +
+
+    '<p>💡 <strong>Queremos ayudarte a escuchar mejor a tus clientes.</strong><br>' +
+    'Sus comentarios y propuestas pueden convertirse en información útil para mejorar su experiencia y detectar nuevas oportunidades para tu negocio.</p>' +
+
+    '<p>Revisaremos personalmente tu solicitud y nos pondremos en contacto contigo para conocer mejor tu empresa y explicarte cómo podemos adaptar <strong>Sonríe y Humaniza</strong> a tus necesidades.</p>' +
+
+    '<p><strong>Gracias por apostar por una forma más humana de escuchar a tus clientes. 💛</strong></p>' +
+
+    '<p>Un abrazo,<br>' +
+    '<strong>Equipo Sonríe y Humaniza</strong></p>' +
+
+    '<p>🌐 <strong>sonrieyhumaniza.es</strong></p>';
 
     asuntoRespuesta.value =
         '💛 Hemos recibido tu mensaje | Sonríe y Humaniza';
 
-    mensajeRespuesta.value =
-        'Hola ' + (formulario.querySelector('[name="nombre"]')?.value || '') + ',\n\n' +
-        '¡Gracias por participar en Sonríe y Humaniza!\n\n' +
-        'Hemos recibido tu mensaje correctamente y queremos agradecerte que hayas dedicado unos minutos a compartir tu experiencia con nosotros.\n\n' +
-        'Cada comentario cuenta.\n' +
-        'Porque detrás de cada repostaje hay una persona y, a veces, un pequeño gesto puede marcar una gran diferencia.\n\n' +
-        'Revisaremos personalmente tu aportación y, si necesita respuesta, nos pondremos en contacto contigo.\n\n' +
-        'Gracias por ayudarnos a hacer las estaciones de servicio un lugar un poquito más humano. 💛\n\n' +
-        'Un abrazo,\n' +
-        'Equipo Sonríe y Humaniza\n' +
-        'sonrieyhumaniza.es';
+   mensajeRespuesta.value =
+    '<p>💛 <strong>Hola ' + (formulario.querySelector('[name="nombre"]')?.value || '') + ',</strong></p>' +
+
+    '<p>¡Gracias por participar en <strong>Sonríe y Humaniza</strong>!</p>' +
+
+    '<p>Hemos recibido tu mensaje correctamente y queremos agradecerte que hayas dedicado unos minutos a compartir tu experiencia con nosotros.</p>' +
+
+    '<p>😊 <strong>Cada comentario cuenta.</strong><br>' +
+    'Porque detrás de cada repostaje hay una persona y, a veces, un pequeño gesto puede marcar una gran diferencia.</p>' +
+
+    '<p>Revisaremos personalmente tu aportación y, si necesita respuesta, nos pondremos en contacto contigo.</p>' +
+
+    '<p><strong>Gracias por ayudarnos a hacer las estaciones de servicio un lugar un poquito más humano. 💛</strong></p>' +
+
+    '<p>Un abrazo,<br>' +
+    '<strong>Equipo Sonríe y Humaniza</strong></p>' +
+
+    '<p>🌐 <strong>sonrieyhumaniza.es</strong></p>';
 }
 
                 emailjs.sendForm(
