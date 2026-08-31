@@ -1847,11 +1847,15 @@
                     </ul>
 
                     <a href="#contacto"
-                       class="btn btn-primary w-100 precio-boton">
+    class="btn btn-primary w-100 precio-boton"
+    onclick="
+        document.getElementById('tipoContacto').value='empresa';
+        document.getElementById('planInteres').value='Plan Inicio';
+    ">
 
-                        💛 Quiero información
+    💛 Quiero información
 
-                    </a>
+</a>
 
                 </div>
 
@@ -1896,11 +1900,15 @@
                     </ul>
 
                     <a href="#contacto"
-                       class="btn btn-outline-dark w-100 precio-boton">
+   class="btn btn-outline-dark w-100 precio-boton"
+   onclick="
+      document.getElementById('tipoContacto').value='empresa';
+      document.getElementById('planInteres').value='Implantación Avanzada';
+   ">
 
-                        Solicitar propuesta
+    Solicitar propuesta
 
-                    </a>
+</a>
 
                 </div>
 
@@ -1977,7 +1985,10 @@
                 <div class="contact-box">
 
                     <form id="contactForm">
-
+<input type="hidden" name="tipo_contacto" id="tipoContacto" value="cliente">
+<input type="hidden" name="plan_interes" id="planInteres" value="">
+                       <input type="hidden" name="asunto_respuesta" id="asuntoRespuesta" value="💛 Hemos recibido tu mensaje | Sonríe y Humaniza">
+<input type="hidden" name="mensaje_respuesta" id="mensajeRespuesta" value="">
                         <div class="row">
 
                             <div class="col-md-6 mb-4">
@@ -2729,7 +2740,46 @@ document.querySelectorAll(".mejora-option").forEach(function(boton) {
 
                 boton.innerHTML =
                     "⏳ Enviando...";
+const tipoContacto = document.getElementById('tipoContacto').value;
+const planInteres = document.getElementById('planInteres').value;
+const asuntoRespuesta = document.getElementById('asuntoRespuesta');
+const mensajeRespuesta = document.getElementById('mensajeRespuesta');
 
+if (tipoContacto === 'empresa') {
+
+    asuntoRespuesta.value =
+        '💛 Gracias por interesarte en Sonríe y Humaniza';
+
+    mensajeRespuesta.value =
+        'Hola ' + (formulario.querySelector('[name="nombre"]')?.value || '') + ',\n\n' +
+        'Gracias por tu interés en Sonríe y Humaniza.\n\n' +
+        'Hemos recibido correctamente tu solicitud de información sobre ' +
+        planInteres +
+        '.\n\n' +
+        'Nos pondremos en contacto contigo para conocer mejor tu empresa y explicarte cómo podemos adaptar Sonríe y Humaniza a tus necesidades.\n\n' +
+        'Nuestro objetivo es ayudarte a escuchar a tus clientes, organizar sus propuestas y convertir cada comentario en información útil para mejorar tu negocio.\n\n' +
+        'Gracias por confiar en una forma más humana de escuchar a tus clientes. 💛\n\n' +
+        'Un abrazo,\n' +
+        'Equipo Sonríe y Humaniza\n' +
+        'sonrieyhumaniza.es';
+
+} else {
+
+    asuntoRespuesta.value =
+        '💛 Hemos recibido tu mensaje | Sonríe y Humaniza';
+
+    mensajeRespuesta.value =
+        'Hola ' + (formulario.querySelector('[name="nombre"]')?.value || '') + ',\n\n' +
+        '¡Gracias por participar en Sonríe y Humaniza!\n\n' +
+        'Hemos recibido tu mensaje correctamente y queremos agradecerte que hayas dedicado unos minutos a compartir tu experiencia con nosotros.\n\n' +
+        'Cada comentario cuenta.\n' +
+        'Porque detrás de cada repostaje hay una persona y, a veces, un pequeño gesto puede marcar una gran diferencia.\n\n' +
+        'Revisaremos personalmente tu aportación y, si necesita respuesta, nos pondremos en contacto contigo.\n\n' +
+        'Gracias por ayudarnos a hacer las estaciones de servicio un lugar un poquito más humano. 💛\n\n' +
+        'Un abrazo,\n' +
+        'Equipo Sonríe y Humaniza\n' +
+        'sonrieyhumaniza.es';
+}
 
                 emailjs.sendForm(
     "service_jslu70a",
