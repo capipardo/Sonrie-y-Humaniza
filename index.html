@@ -1846,12 +1846,9 @@
 
                     </ul>
 
-                    <a href="#contacto"
-    class="btn btn-primary w-100 precio-boton"
-    onclick="
-        document.getElementById('tipoContacto').value='empresa';
-        document.getElementById('planInteres').value='Plan Inicio';
-    ">
+<a href="#contacto"
+   id="botonPlanInicio"
+   class="btn btn-primary w-100 precio-boton">
 
     💛 Quiero información
 
@@ -1899,12 +1896,9 @@
 
                     </ul>
 
-                    <a href="#contacto"
-   class="btn btn-outline-dark w-100 precio-boton"
-   onclick="
-      document.getElementById('tipoContacto').value='empresa';
-      document.getElementById('planInteres').value='Implantación Avanzada';
-   ">
+                   <a href="#contacto"
+   id="botonPlanAvanzado"
+   class="btn btn-outline-dark w-100 precio-boton">
 
     Solicitar propuesta
 
@@ -2727,7 +2721,22 @@ document.querySelectorAll(".mejora-option").forEach(function(boton) {
     const respuesta =
         document.getElementById("respuesta");
 
+const botonPlanInicio = document.getElementById("botonPlanInicio");
+const botonPlanAvanzado = document.getElementById("botonPlanAvanzado");
 
+if (botonPlanInicio) {
+    botonPlanInicio.addEventListener("click", function() {
+        document.getElementById("tipoContacto").value = "empresa";
+        document.getElementById("planInteres").value = "Plan Inicio";
+    });
+}
+
+if (botonPlanAvanzado) {
+    botonPlanAvanzado.addEventListener("click", function() {
+        document.getElementById("tipoContacto").value = "empresa";
+        document.getElementById("planInteres").value = "Implantación Avanzada";
+    });
+}
     if (formulario) {
 
         formulario.addEventListener(
