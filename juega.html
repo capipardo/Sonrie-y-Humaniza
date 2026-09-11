@@ -230,7 +230,75 @@
   background: #eff9f3;
   line-height: 1.5;
 }
+.rewards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
 
+.reward-card {
+  border: 1px solid #e0e8e3;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: left;
+  background: #ffffff;
+}
+
+.reward-card.available {
+  border: 2px solid #168b5c;
+  background: #f4fbf7;
+}
+
+.reward-card.locked {
+  opacity: .72;
+}
+
+.reward-name {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.reward-cost {
+  font-size: 14px;
+  color: #168b5c;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.reward-description {
+  font-size: 13px;
+  color: #718079;
+  margin-bottom: 10px;
+}
+
+.reward-button {
+  width: 100%;
+  padding: 11px;
+  margin-top: 6px;
+}
+
+.reward-button:disabled {
+  background: #dce4df;
+  color: #77847e;
+  cursor: not-allowed;
+}
+
+#redemptionResult {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #fff8d7;
+  border: 1px solid #ead987;
+}
+
+.redemption-code {
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 12px 0;
+}
   </style>
 </head>
 
@@ -320,7 +388,22 @@
       </p>
     </div>
 
-    <hr class="separator">
+
+<h2 style="margin-top:28px;">🎁 Mis recompensas</h2>
+
+<p class="small">
+  Consigue puntos y cámbialos por recompensas.
+</p>
+
+<div id="rewardsList">
+  <p class="small">Cargando recompensas...</p>
+</div>
+
+<div id="redemptionResult" class="hidden"></div>
+
+<hr class="separator">
+
+
 
     <h2>🎮 Atrapa la sonrisa</h2>
 
@@ -393,6 +476,7 @@ let gameTime = 20;
 
 let gameTimer = null;
 let spawnTimer = null;
+  let currentBalance = 0;
   // =====================================================
   // ENVIAR CÓDIGO
   // =====================================================
@@ -671,6 +755,7 @@ async function loadPoints() {
 // =====================================================
 
 function updatePointsScreen(balance) {
+  currentBalance = balance;
 
   document.getElementById('pointsBalance').textContent = balance;
 
@@ -694,6 +779,7 @@ function updatePointsScreen(balance) {
     document.getElementById('rewardRemaining').textContent =
       '🎁 ¡Ya tienes puntos suficientes para esta recompensa!';
   }
+  loadRewards();
 }
 
 
@@ -884,6 +970,308 @@ function stopGame() {
 
   gameTimer = null;
   spawnTimer = null;
+}
+  // =====================================================
+// CARGAR RECOMPENSAS
+// =====================================================
+
+async function loadRewards() {
+
+  const list = document.getElementById('rewardsList');
+
+  if (!list) return;
+
+  const { data: station, error: stationError } =
+    await supabaseClient
+      .from('stations')
+      .select('id')
+      .eq('slug', STATION_SLUG)
+      .single();
+
+  if (stationError) {
+    console.error(stationError);
+
+    list.innerHTML =
+      '<p class="small">No se ha podido localizar la estación.</p>';
+
+    return;
+  }
+
+  const { data: rewards, error } =
+    await supabaseClient
+      .from('rewards')
+      .select('id, name, description, cost_points, stock')
+      .eq('station_id', station.id)
+      .eq('active', true)
+      .order('cost_points', { ascending: true });
+
+  if (error) {
+    console.error(error);
+
+    list.innerHTML =
+      '<p class="small">No se han podido cargar las recompensas.</p>';
+
+    return;
+  }
+
+  if (!rewards || rewards.length === 0) {
+
+    list.innerHTML =
+      '<p class="small">Todavía no hay recompensas disponibles.</p>';
+
+    return;
+  }
+
+  list.className = 'rewards-list';
+  list.innerHTML = '';
+
+  rewards.forEach(reward => {
+
+    const canRedeem =
+      currentBalance >= reward.cost_points &&
+      (reward.stock === null || reward.stock > 0);
+
+    const missing =
+      Math.max(
+        0,
+        reward.cost_points - currentBalance
+      );
+
+    const card =
+      document.createElement('div');
+
+    card.className =
+      'reward-card ' +
+      (canRedeem ? 'available' : 'locked');
+
+
+    const name =
+      document.createElement('div');
+
+    name.className = 'reward-name';
+
+    name.textContent =
+      `${getRewardEmoji(reward.name)} ${reward.name}`;
+
+
+    const cost =
+      document.createElement('div');
+
+    cost.className = 'reward-cost';
+
+    cost.textContent =
+      `⭐ ${reward.cost_points} puntos`;
+
+
+    const description =
+      document.createElement('div');
+
+    description.className =
+      'reward-description';
+
+    description.textContent =
+      reward.description || '';
+
+
+    const status =
+      document.createElement('div');
+
+    status.className = 'small';
+
+    if (reward.stock !== null && reward.stock <= 0) {
+
+      status.textContent = 'Agotada';
+
+    } else if (canRedeem) {
+
+      status.textContent =
+        '🎉 ¡Ya puedes conseguirla!';
+
+    } else {
+
+      status.textContent =
+        `Te faltan ${missing} puntos`;
+    }
+
+
+    const button =
+      document.createElement('button');
+
+    button.className = 'reward-button';
+
+    button.disabled = !canRedeem;
+
+    button.textContent =
+      canRedeem
+        ? '🎁 CANJEAR'
+        : '🔒 BLOQUEADA';
+
+    if (canRedeem) {
+
+      button.addEventListener(
+        'click',
+        function () {
+
+          confirmRedeem(
+            reward.id,
+            reward.name,
+            reward.cost_points
+          );
+
+        }
+      );
+    }
+
+
+    card.appendChild(name);
+    card.appendChild(cost);
+    card.appendChild(description);
+    card.appendChild(status);
+    card.appendChild(button);
+
+    list.appendChild(card);
+
+  });
+}
+
+
+// =====================================================
+// EMOJI SEGÚN RECOMPENSA
+// =====================================================
+
+function getRewardEmoji(name) {
+
+  const text =
+    String(name).toLowerCase();
+
+  if (
+    text.includes('café') ||
+    text.includes('cafe')
+  ) {
+    return '☕';
+  }
+
+  if (text.includes('lavadero')) {
+    return '🚗';
+  }
+
+  if (text.includes('bebida')) {
+    return '🥤';
+  }
+
+  return '🎁';
+}
+
+
+// =====================================================
+// CONFIRMAR CANJE
+// =====================================================
+
+function confirmRedeem(
+  rewardId,
+  rewardName,
+  points
+) {
+
+  const confirmed =
+    window.confirm(
+      `¿Quieres canjear "${rewardName}" por ${points} puntos?`
+    );
+
+  if (!confirmed) return;
+
+  redeemReward(rewardId);
+}
+
+
+// =====================================================
+// REALIZAR CANJE
+// =====================================================
+
+async function redeemReward(rewardId) {
+
+  const resultBox =
+    document.getElementById('redemptionResult');
+
+  resultBox.classList.remove('hidden');
+
+  resultBox.innerHTML =
+    'Procesando tu recompensa... 🎁';
+
+  const { data, error } =
+    await supabaseClient.rpc(
+      'redeem_reward',
+      {
+        p_reward_id: rewardId
+      }
+    );
+
+  if (error) {
+
+    console.error(error);
+
+    resultBox.textContent =
+      '❌ No hemos podido realizar el canje: ' +
+      error.message;
+
+    return;
+  }
+
+  updatePointsScreen(data.balance);
+
+  resultBox.innerHTML = '';
+
+  const title =
+    document.createElement('strong');
+
+  title.textContent =
+    '🎉 ¡Recompensa conseguida!';
+
+
+  const rewardName =
+    document.createElement('p');
+
+  rewardName.textContent =
+    data.reward_name;
+
+
+  const spent =
+    document.createElement('p');
+
+  spent.innerHTML =
+    `Has utilizado <strong>${data.points_spent} puntos</strong>.`;
+
+
+  const code =
+    document.createElement('div');
+
+  code.className =
+    'redemption-code';
+
+  code.textContent =
+    data.code;
+
+
+  const instruction =
+    document.createElement('strong');
+
+  instruction.textContent =
+    'Enseña este código al personal de la estación.';
+
+
+  const balance =
+    document.createElement('p');
+
+  balance.innerHTML =
+    `⭐ Saldo restante: <strong>${data.balance} puntos</strong>`;
+
+
+  resultBox.appendChild(title);
+  resultBox.appendChild(rewardName);
+  resultBox.appendChild(spent);
+  resultBox.appendChild(code);
+  resultBox.appendChild(instruction);
+  resultBox.appendChild(balance);
 }
   checkSession();
 
