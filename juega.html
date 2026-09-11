@@ -129,6 +129,108 @@
     .welcome-box {
       padding: 20px 0 4px;
     }
+    .welcome-box {
+  padding: 20px 0 4px;
+}
+
+/* AQUÍ PEGAS TODO EL BLOQUE NUEVO */
+
+.separator {
+  border: none;
+  border-top: 1px solid #e4ebe7;
+  margin: 26px 0;
+}
+
+.reward-progress {
+  margin-top: 18px;
+}
+
+.reward-info {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 14px;
+  background: #edf2ef;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#progressFill {
+  height: 100%;
+  width: 0%;
+  background: #168b5c;
+  border-radius: 20px;
+  transition: width .4s ease;
+}
+
+#gameStats {
+  margin: 14px 0;
+  font-size: 18px;
+}
+
+#gameArea {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 14px;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, #fff7c7 0%, #e8f7ee 100%);
+  border: 2px dashed #b7d6c5;
+}
+
+#gameStartMessage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #60736c;
+  font-weight: bold;
+}
+
+.smile-target {
+  position: absolute;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  font-size: 42px;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+  animation: popSmile .18s ease-out;
+}
+
+.smile-target:hover {
+  transform: scale(1.1);
+}
+
+@keyframes popSmile {
+  from {
+    transform: scale(.4);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#gameResult {
+  margin: 18px 0;
+  padding: 16px;
+  border-radius: 14px;
+  background: #eff9f3;
+  line-height: 1.5;
+}
+
   </style>
 </head>
 
@@ -192,33 +294,67 @@
     </section>
 
     <!-- PASO 3: USUARIO IDENTIFICADO -->
-    <section id="loggedSection" class="hidden">
+   <section id="loggedSection" class="hidden">
 
-      <div class="welcome-box">
+  <div class="welcome-box">
 
-        <h2>🎉 ¡Bienvenido/a!</h2>
+    <h2>🎉 ¡Bienvenido/a!</h2>
 
-        <p>
-          Tu acceso a Sonríe Rewards funciona correctamente.
-        </p>
+    <div class="points">
+      ⭐ <span id="pointsBalance">0</span>
+    </div>
 
-        <div class="points">⭐ 0</div>
+    <p>Puntos Sonríe</p>
 
-        <p>Puntos Sonríe</p>
-
-        <p class="small">
-          En el siguiente paso añadiremos aquí
-          <strong>Atrapa la sonrisa</strong>,
-          tus puntos y tus recompensas.
-        </p>
-
-        <button onclick="logout()">
-          Cerrar sesión
-        </button>
-
+    <div class="reward-progress">
+      <div class="reward-info">
+        ☕ Café gratis · 200 puntos
       </div>
 
-    </section>
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+
+      <p id="rewardRemaining" class="small">
+        Te faltan 200 puntos para tu primera recompensa.
+      </p>
+    </div>
+
+    <hr class="separator">
+
+    <h2>🎮 Atrapa la sonrisa</h2>
+
+    <p class="small">
+      Atrapa todas las sonrisas que puedas durante 20 segundos.
+    </p>
+
+    <div id="gameStats">
+      ⏱ <strong id="gameTime">20</strong>s
+      &nbsp;&nbsp;
+      😊 <strong id="gameScore">0</strong>
+    </div>
+
+    <div id="gameArea">
+      <div id="gameStartMessage">
+        Pulsa JUGAR para comenzar 😊
+      </div>
+    </div>
+
+    <button id="playButton" onclick="startGame()">
+      🎮 JUGAR
+    </button>
+
+    <div id="gameResult" class="hidden"></div>
+
+    <button class="secondary" onclick="logout()">
+      Cerrar sesión
+    </button>
+
+  </div>
+
+</section>
+
+      
 
     <div id="message"></div>
 
@@ -249,7 +385,14 @@ const SUPABASE_PUBLISHABLE_KEY =
 
   let currentEmail = '';
 
+const STATION_SLUG = 'demo-sonrie-y-humaniza';
 
+let gameRunning = false;
+let gameScore = 0;
+let gameTime = 20;
+
+let gameTimer = null;
+let spawnTimer = null;
   // =====================================================
   // ENVIAR CÓDIGO
   // =====================================================
@@ -407,16 +550,17 @@ const SUPABASE_PUBLISHABLE_KEY =
 
   function showLoggedIn() {
 
-    document.getElementById('emailSection')
-      .classList.add('hidden');
+  document.getElementById('emailSection')
+    .classList.add('hidden');
 
-    document.getElementById('otpSection')
-      .classList.add('hidden');
+  document.getElementById('otpSection')
+    .classList.add('hidden');
 
-    document.getElementById('loggedSection')
-      .classList.remove('hidden');
+  document.getElementById('loggedSection')
+    .classList.remove('hidden');
 
-  }
+  loadPoints();
+}
 
 
   // =====================================================
@@ -424,7 +568,7 @@ const SUPABASE_PUBLISHABLE_KEY =
   // =====================================================
 
   async function logout() {
-
+stopGame();
     await supabaseClient.auth.signOut();
 
     currentEmail = '';
@@ -478,7 +622,269 @@ const SUPABASE_PUBLISHABLE_KEY =
     }
 
   }
+// =====================================================
+// CARGAR PUNTOS
+// =====================================================
 
+async function loadPoints() {
+
+  const { data: sessionData } =
+    await supabaseClient.auth.getSession();
+
+  if (!sessionData.session) return;
+
+  const userId = sessionData.session.user.id;
+
+  const { data: station, error: stationError } =
+    await supabaseClient
+      .from('stations')
+      .select('id')
+      .eq('slug', STATION_SLUG)
+      .single();
+
+  if (stationError) {
+    console.error(stationError);
+    return;
+  }
+
+  const { data: account, error } =
+    await supabaseClient
+      .from('customer_station_accounts')
+      .select('points_balance')
+      .eq('user_id', userId)
+      .eq('station_id', station.id)
+      .maybeSingle();
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  const balance = account ? account.points_balance : 0;
+
+  updatePointsScreen(balance);
+}
+
+
+// =====================================================
+// ACTUALIZAR PUNTOS EN PANTALLA
+// =====================================================
+
+function updatePointsScreen(balance) {
+
+  document.getElementById('pointsBalance').textContent = balance;
+
+  const rewardCost = 200;
+
+  const percentage =
+    Math.min(100, (balance / rewardCost) * 100);
+
+  document.getElementById('progressFill').style.width =
+    percentage + '%';
+
+  const remaining = Math.max(0, rewardCost - balance);
+
+  if (remaining > 0) {
+
+    document.getElementById('rewardRemaining').textContent =
+      `Te faltan ${remaining} puntos para conseguir un café gratis.`;
+
+  } else {
+
+    document.getElementById('rewardRemaining').textContent =
+      '🎁 ¡Ya tienes puntos suficientes para esta recompensa!';
+  }
+}
+
+
+// =====================================================
+// EMPEZAR JUEGO
+// =====================================================
+
+function startGame() {
+
+  if (gameRunning) return;
+
+  gameRunning = true;
+  gameScore = 0;
+  gameTime = 20;
+
+  document.getElementById('gameScore').textContent = gameScore;
+  document.getElementById('gameTime').textContent = gameTime;
+
+  document.getElementById('gameResult').classList.add('hidden');
+
+  document.getElementById('playButton').disabled = true;
+
+  const area = document.getElementById('gameArea');
+
+  area.innerHTML = '';
+
+  spawnSmile();
+
+  spawnTimer = setInterval(spawnSmile, 650);
+
+  gameTimer = setInterval(() => {
+
+    gameTime--;
+
+    document.getElementById('gameTime').textContent = gameTime;
+
+    if (gameTime <= 0) {
+      finishGame();
+    }
+
+  }, 1000);
+}
+
+
+// =====================================================
+// CREAR SONRISAS
+// =====================================================
+
+function spawnSmile() {
+
+  if (!gameRunning) return;
+
+  const area = document.getElementById('gameArea');
+
+  const smile = document.createElement('button');
+
+  smile.className = 'smile-target';
+
+  const emojis = ['😊', '😁', '😄', '💛', '⭐'];
+
+  smile.textContent =
+    emojis[Math.floor(Math.random() * emojis.length)];
+
+  const maxX = Math.max(0, area.clientWidth - 60);
+  const maxY = Math.max(0, area.clientHeight - 60);
+
+  smile.style.left = Math.random() * maxX + 'px';
+  smile.style.top = Math.random() * maxY + 'px';
+
+  area.appendChild(smile);
+
+  smile.addEventListener('click', function () {
+
+    if (!gameRunning) return;
+
+    gameScore++;
+
+    document.getElementById('gameScore').textContent = gameScore;
+
+    smile.remove();
+  });
+
+  setTimeout(() => {
+
+    if (smile.isConnected) {
+      smile.remove();
+    }
+
+  }, 1200);
+}
+
+
+// =====================================================
+// FINALIZAR JUEGO Y GUARDAR PUNTOS
+// =====================================================
+
+async function finishGame() {
+
+  if (!gameRunning) return;
+
+  gameRunning = false;
+
+  clearInterval(gameTimer);
+  clearInterval(spawnTimer);
+
+  gameTimer = null;
+  spawnTimer = null;
+
+  const area = document.getElementById('gameArea');
+
+  area.innerHTML =
+    '<div id="gameStartMessage">Calculando resultado... 😊</div>';
+
+  const resultBox = document.getElementById('gameResult');
+
+  resultBox.classList.remove('hidden');
+
+  resultBox.innerHTML =
+    `Has atrapado <strong>${gameScore}</strong> sonrisas.<br>Guardando tus puntos...`;
+
+  const { data, error } =
+    await supabaseClient.rpc(
+      'finish_smile_game',
+      {
+        p_station_slug: STATION_SLUG,
+        p_score: gameScore
+      }
+    );
+
+  document.getElementById('playButton').disabled = false;
+
+  area.innerHTML =
+    '<div id="gameStartMessage">¿Quieres superar tu récord? 😊</div>';
+
+  if (error) {
+
+    console.error(error);
+
+    resultBox.innerHTML =
+      '❌ Ha ocurrido un problema al guardar la partida.';
+
+    return;
+  }
+
+  const awarded = data.awarded_points;
+  const balance = data.balance;
+
+  updatePointsScreen(balance);
+
+  if (awarded === 20) {
+
+    resultBox.innerHTML = `
+      🎉 ¡Buen trabajo!<br><br>
+      Has atrapado <strong>${gameScore}</strong> sonrisas.<br>
+      Has conseguido <strong>+20 puntos Sonríe</strong>.<br><br>
+      ⭐ Saldo total: <strong>${balance} puntos</strong>
+    `;
+
+  } else {
+
+    resultBox.innerHTML = `
+      😊 ¡Buena partida!<br><br>
+      Has atrapado <strong>${gameScore}</strong> sonrisas.<br><br>
+      Ya habías conseguido tus
+      <strong>20 puntos de hoy</strong>.<br>
+      Puedes seguir jugando para superar tu puntuación.<br><br>
+      ⭐ Saldo total: <strong>${balance} puntos</strong>
+    `;
+  }
+}
+
+
+// =====================================================
+// DETENER JUEGO
+// =====================================================
+
+function stopGame() {
+
+  gameRunning = false;
+
+  if (gameTimer) {
+    clearInterval(gameTimer);
+  }
+
+  if (spawnTimer) {
+    clearInterval(spawnTimer);
+  }
+
+  gameTimer = null;
+  spawnTimer = null;
+}
   checkSession();
 
 </script>
