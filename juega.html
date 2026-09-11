@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonríe Rewards | Sonríe y Humaniza</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, #fff9d9 0%, #f4f7f5 45%, #e9f6ee 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #18352b;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 460px;
+      background: white;
+      border-radius: 24px;
+      padding: 34px 28px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.12);
+      text-align: center;
+    }
+
+    .logo {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 46px;
+      background: #fff4a8;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .subtitle {
+      margin: 0 0 26px;
+      color: #60736c;
+      line-height: 1.5;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      margin: 8px 0;
+      border: 1px solid #d5ded9;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #209765;
+      box-shadow: 0 0 0 3px rgba(32,151,101,.12);
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      background: #168b5c;
+      color: white;
+    }
+
+    button:hover {
+      opacity: .92;
+    }
+
+    button.secondary {
+      background: #edf4f0;
+      color: #24513f;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #message {
+      margin-top: 16px;
+      min-height: 24px;
+      line-height: 1.4;
+      font-size: 14px;
+    }
+
+    .success {
+      color: #0c7a46;
+    }
+
+    .error {
+      color: #b42318;
+    }
+
+    .points {
+      font-size: 42px;
+      font-weight: bold;
+      margin: 20px 0 4px;
+    }
+
+    .small {
+      font-size: 13px;
+      color: #718079;
+      margin-top: 18px;
+    }
+
+    .welcome-box {
+      padding: 20px 0 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="card">
+
+    <div class="logo">😊</div>
+
+    <h1>Sonríe Rewards</h1>
+
+    <p class="subtitle">
+      Juega, participa y consigue puntos y recompensas.
+    </p>
+
+    <!-- PASO 1: EMAIL -->
+    <section id="emailSection">
+      <input
+        id="email"
+        type="email"
+        placeholder="Tu correo electrónico"
+        autocomplete="email"
+      >
+
+      <button id="sendCodeButton" onclick="sendCode()">
+        Enviar código de acceso
+      </button>
+
+      <p class="small">
+        Te enviaremos un código de acceso a tu email.
+        No necesitas contraseña.
+      </p>
+    </section>
+
+    <!-- PASO 2: CÓDIGO OTP -->
+    <section id="otpSection" class="hidden">
+
+      <p>
+        Hemos enviado un código a:
+      </p>
+
+      <strong id="emailShown"></strong>
+
+      <input
+        id="otp"
+        type="text"
+        inputmode="numeric"
+        maxlength="8"
+        placeholder="Introduce tu código"
+        autocomplete="one-time-code"
+      >
+
+      <button onclick="verifyCode()">
+        Entrar en Sonríe Rewards
+      </button>
+
+      <button class="secondary" onclick="backToEmail()">
+        Cambiar email
+      </button>
+
+    </section>
+
+    <!-- PASO 3: USUARIO IDENTIFICADO -->
+    <section id="loggedSection" class="hidden">
+
+      <div class="welcome-box">
+
+        <h2>🎉 ¡Bienvenido/a!</h2>
+
+        <p>
+          Tu acceso a Sonríe Rewards funciona correctamente.
+        </p>
+
+        <div class="points">⭐ 0</div>
+
+        <p>Puntos Sonríe</p>
+
+        <p class="small">
+          En el siguiente paso añadiremos aquí
+          <strong>Atrapa la sonrisa</strong>,
+          tus puntos y tus recompensas.
+        </p>
+
+        <button onclick="logout()">
+          Cerrar sesión
+        </button>
+
+      </div>
+
+    </section>
+
+    <div id="message"></div>
+
+  </main>
+
+
+<script>
+
+  // =====================================================
+  // CONFIGURACIÓN SUPABASE
+  // =====================================================
+
+  const SUPABASE_URL =
+    'https://vxavkvwoaagrqgjdfwrb.supabase.co';
+
+  
+
+const SUPABASE_PUBLISHABLE_KEY =
+  'sb_publishable_WUebs1fWu1rh3yvFou16Ow_tPe4baO_';
+
+
+  const supabaseClient =
+    window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+  let currentEmail = '';
+
+
+  // =====================================================
+  // ENVIAR CÓDIGO
+  // =====================================================
+
+  async function sendCode() {
+
+    const emailInput =
+      document.getElementById('email');
+
+    const email =
+      emailInput.value.trim().toLowerCase();
+
+    if (!email || !email.includes('@')) {
+      showMessage(
+        'Introduce un correo electrónico válido.',
+        'error'
+      );
+      return;
+    }
+
+    const button =
+      document.getElementById('sendCodeButton');
+
+    button.disabled = true;
+    button.textContent = 'Enviando código...';
+
+    showMessage(
+      'Enviando tu código...',
+      ''
+    );
+
+    const { error } =
+      await supabaseClient.auth.signInWithOtp({
+        email: email,
+        options: {
+          shouldCreateUser: true
+        }
+      });
+
+    button.disabled = false;
+    button.textContent = 'Enviar código de acceso';
+
+    if (error) {
+      console.error(error);
+
+      showMessage(
+        'No hemos podido enviar el código: ' +
+        error.message,
+        'error'
+      );
+
+      return;
+    }
+
+    currentEmail = email;
+
+    document.getElementById('emailShown')
+      .textContent = email;
+
+    document.getElementById('emailSection')
+      .classList.add('hidden');
+
+    document.getElementById('otpSection')
+      .classList.remove('hidden');
+
+    showMessage(
+      '📧 Código enviado. Revisa también tu carpeta de spam.',
+      'success'
+    );
+
+  }
+
+
+  // =====================================================
+  // VERIFICAR CÓDIGO
+  // =====================================================
+
+  async function verifyCode() {
+
+    const token =
+      document.getElementById('otp')
+      .value
+      .trim();
+
+    if (!token) {
+      showMessage(
+        'Introduce el código que has recibido.',
+        'error'
+      );
+      return;
+    }
+
+    showMessage(
+      'Comprobando código...',
+      ''
+    );
+
+    const { data, error } =
+      await supabaseClient.auth.verifyOtp({
+        email: currentEmail,
+        token: token,
+        type: 'email'
+      });
+
+    if (error) {
+
+      console.error(error);
+
+      showMessage(
+        'El código no es correcto o ha caducado. ' +
+        'Solicita uno nuevo.',
+        'error'
+      );
+
+      return;
+    }
+
+    if (data.session) {
+
+      showLoggedIn();
+
+      showMessage(
+        '✅ Acceso realizado correctamente.',
+        'success'
+      );
+
+    }
+
+  }
+
+
+  // =====================================================
+  // VOLVER AL EMAIL
+  // =====================================================
+
+  function backToEmail() {
+
+    document.getElementById('otp')
+      .value = '';
+
+    document.getElementById('otpSection')
+      .classList.add('hidden');
+
+    document.getElementById('emailSection')
+      .classList.remove('hidden');
+
+    showMessage('', '');
+
+  }
+
+
+  // =====================================================
+  // USUARIO IDENTIFICADO
+  // =====================================================
+
+  function showLoggedIn() {
+
+    document.getElementById('emailSection')
+      .classList.add('hidden');
+
+    document.getElementById('otpSection')
+      .classList.add('hidden');
+
+    document.getElementById('loggedSection')
+      .classList.remove('hidden');
+
+  }
+
+
+  // =====================================================
+  // CERRAR SESIÓN
+  // =====================================================
+
+  async function logout() {
+
+    await supabaseClient.auth.signOut();
+
+    currentEmail = '';
+
+    document.getElementById('loggedSection')
+      .classList.add('hidden');
+
+    document.getElementById('emailSection')
+      .classList.remove('hidden');
+
+    document.getElementById('email')
+      .value = '';
+
+    document.getElementById('otp')
+      .value = '';
+
+    showMessage(
+      'Sesión cerrada correctamente.',
+      'success'
+    );
+
+  }
+
+
+  // =====================================================
+  // MENSAJES
+  // =====================================================
+
+  function showMessage(text, type) {
+
+    const box =
+      document.getElementById('message');
+
+    box.textContent = text;
+    box.className = type;
+
+  }
+
+
+  // =====================================================
+  // COMPROBAR SI YA ESTÁ IDENTIFICADO
+  // =====================================================
+
+  async function checkSession() {
+
+    const { data } =
+      await supabaseClient.auth.getSession();
+
+    if (data.session) {
+      showLoggedIn();
+    }
+
+  }
+
+  checkSession();
+
+</script>
+
+</body>
+</html>
