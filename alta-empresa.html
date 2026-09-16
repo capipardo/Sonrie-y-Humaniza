@@ -154,7 +154,62 @@
             padding: 0;
             cursor: pointer;
         }
+        /* BLOQUE FINAL DE ENVÍO */
 
+        .bloque-envio {
+            text-align: left;
+        }
+
+        .consentimiento {
+            display: flex !important;
+            align-items: flex-start;
+            gap: 12px;
+            margin-top: 20px !important;
+            padding: 16px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-weight: normal !important;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        .consentimiento input[type="checkbox"] {
+            width: auto;
+            margin: 4px 0 0 0;
+            padding: 0;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .boton-enviar {
+            display: block;
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px 20px;
+            background: #222;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .boton-enviar:hover {
+            background: #444;
+            transform: translateY(-1px);
+        }
+
+        .mensaje-envio {
+            display: none;
+            margin-top: 18px;
+            padding: 15px;
+            border-radius: 7px;
+            text-align: center;
+            font-weight: bold;
+        }
         @media (max-width: 600px) {
             .opciones-checkbox {
                 grid-template-columns: 1fr;
@@ -447,6 +502,36 @@
               name="observacionesEmpresa"
               rows="5"
               placeholder="Cuéntanos cualquier otra información que consideres importante para preparar tu proyecto."></textarea>
+
+</div>
+                <div class="bloque-formulario bloque-envio">
+
+    <h3>7. Enviar ficha de alta</h3>
+
+    <p class="texto-ayuda">
+        Antes de enviar la ficha, revisa que los datos y documentos
+        facilitados sean correctos.
+    </p>
+
+    <label class="consentimiento">
+        <input type="checkbox"
+               id="aceptaPrivacidad"
+               name="aceptaPrivacidad"
+               required>
+
+        <span>
+            Confirmo que estoy autorizado/a para facilitar estos datos
+            y documentos y acepto su tratamiento para gestionar la
+            solicitud y preparar la personalización del proyecto
+            Sonríe y Humaniza.
+        </span>
+    </label>
+
+    <button type="submit" id="botonEnviarAlta" class="boton-enviar">
+        📝 Enviar ficha de alta
+    </button>
+
+    <div id="mensajeEnvio" class="mensaje-envio"></div>
 
 </div>
 </form>
