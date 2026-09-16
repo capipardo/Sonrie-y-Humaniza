@@ -127,6 +127,39 @@
             background: white;
             cursor: pointer;
         }
+                .opciones-checkbox {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 12px;
+            margin-bottom: 22px;
+        }
+
+        .opciones-checkbox label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0;
+            padding: 12px 14px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        .opciones-checkbox input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .opciones-checkbox {
+                grid-template-columns: 1fr;
+            }
+        }
         @media (max-width: 600px) {
             .tarjeta {
                 padding: 22px 16px;
@@ -251,6 +284,87 @@
               name="descripcionEmpresa"
               rows="6"
               placeholder="Cuéntanos brevemente qué hace tu empresa, qué la caracteriza y cuáles son sus valores."></textarea>
+
+</div>
+                <div class="bloque-formulario">
+
+    <h3>4. Configuración de participaciones</h3>
+
+    <label for="correoMensajes">Correo donde deseas recibir los mensajes de tus clientes</label>
+    <input type="email"
+           id="correoMensajes"
+           name="correoMensajes">
+
+    <label for="nombreRemitente">Nombre que aparecerá como remitente</label>
+    <input type="text"
+           id="nombreRemitente"
+           name="nombreRemitente"
+           placeholder="Ej.: Estación de Servicio Ejemplo">
+
+    <label for="correoRespuesta">Correo de respuesta / contacto</label>
+    <input type="email"
+           id="correoRespuesta"
+           name="correoRespuesta">
+
+    <label>¿Qué deseas conocer de tus clientes?</label>
+
+    <div class="opciones-checkbox">
+
+        <label>
+            <input type="checkbox" name="intereses" value="Experiencia general">
+            Experiencia general
+        </label>
+
+        <label>
+            <input type="checkbox" name="intereses" value="Productos">
+            Productos
+        </label>
+
+        <label>
+            <input type="checkbox" name="intereses" value="Servicios">
+            Servicios
+        </label>
+
+        <label>
+            <input type="checkbox" name="intereses" value="Atención al cliente">
+            Atención al cliente
+        </label>
+
+        <label>
+            <input type="checkbox" name="intereses" value="Instalaciones">
+            Instalaciones
+        </label>
+
+        <label>
+            <input type="checkbox" name="intereses" value="Comida / bebida">
+            Comida / bebida
+        </label>
+
+        <label>
+            <input type="checkbox" name="intereses" value="Sostenibilidad">
+            Sostenibilidad
+        </label>
+
+        <label>
+            <input type="checkbox" name="intereses" value="Otra">
+            Otra
+        </label>
+
+    </div>
+
+    <label for="otraCategoria">Si has marcado "Otra", indícanos cuál</label>
+    <input type="text"
+           id="otraCategoria"
+           name="otraCategoria">
+
+    <label for="preguntasEspecificas">
+        Preguntas o categorías específicas que deseas añadir
+    </label>
+
+    <textarea id="preguntasEspecificas"
+              name="preguntasEspecificas"
+              rows="5"
+              placeholder="Escribe aquí cualquier pregunta, categoría o aspecto concreto que quieras conocer de tus clientes."></textarea>
 
 </div>
 </form>
