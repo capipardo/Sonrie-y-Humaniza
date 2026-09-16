@@ -105,7 +105,28 @@
             border-color: #d6ad20;
             box-shadow: 0 0 0 3px rgba(214, 173, 32, 0.15);
         }
+        .bloque-formulario textarea {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background: white;
+            outline: none;
+            resize: vertical;
+        }
 
+        .bloque-formulario textarea:focus {
+            border-color: #d6ad20;
+            box-shadow: 0 0 0 3px rgba(214, 173, 32, 0.15);
+        }
+
+        .bloque-formulario input[type="file"] {
+            padding: 10px;
+            background: white;
+            cursor: pointer;
+        }
         @media (max-width: 600px) {
             .tarjeta {
                 padding: 22px 16px;
@@ -173,7 +194,65 @@
         <input type="url" id="web" name="web" placeholder="https://">
 
     </div>
+<div class="bloque-formulario">
 
+    <h3>2. Persona responsable del proyecto</h3>
+
+    <label for="responsableNombre">Nombre y apellidos</label>
+    <input type="text" id="responsableNombre" name="responsableNombre">
+
+    <label for="responsableCargo">Cargo</label>
+    <input type="text" id="responsableCargo" name="responsableCargo">
+
+    <label for="responsableTelefono">Teléfono</label>
+    <input type="tel" id="responsableTelefono" name="responsableTelefono">
+
+    <label for="responsableEmail">Correo electrónico</label>
+    <input type="email" id="responsableEmail" name="responsableEmail">
+
+</div>
+                <div class="bloque-formulario">
+
+    <h3>3. Identidad y comunicación</h3>
+
+    <label for="logoEmpresa">Logotipo de la empresa</label>
+    <input type="file"
+           id="logoEmpresa"
+           name="logoEmpresa"
+           accept=".jpg,.jpeg,.png,.webp,.svg">
+
+    <label for="coloresCorporativos">Colores corporativos</label>
+    <input type="text"
+           id="coloresCorporativos"
+           name="coloresCorporativos"
+           placeholder="Ej.: azul y blanco">
+
+    <label for="redesSociales">Redes sociales</label>
+    <input type="text"
+           id="redesSociales"
+           name="redesSociales"
+           placeholder="Instagram, Facebook, LinkedIn...">
+
+    <label for="telefonoPublico">Teléfono / WhatsApp público</label>
+    <input type="tel"
+           id="telefonoPublico"
+           name="telefonoPublico">
+
+    <label for="correoPublico">Correo electrónico público</label>
+    <input type="email"
+           id="correoPublico"
+           name="correoPublico">
+
+    <label for="descripcionEmpresa">
+        Breve descripción de la empresa / misión / valores
+    </label>
+
+    <textarea id="descripcionEmpresa"
+              name="descripcionEmpresa"
+              rows="6"
+              placeholder="Cuéntanos brevemente qué hace tu empresa, qué la caracteriza y cuáles son sus valores."></textarea>
+
+</div>
 </form>
             <a href="index.html#empresas" class="volver">
                 ← Volver a Sonríe y Humaniza
