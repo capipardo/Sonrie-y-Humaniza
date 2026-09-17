@@ -546,6 +546,23 @@
 <script>
 const URL_ALTA_EMPRESA = "https://script.google.com/macros/s/AKfycbznydyEY44-bDY1H_hdFCEygtJ9Yu7O8wtYgxSQ5oTrm6KMBfVVWW1Rpoc9jiL7Xujs/exec";
 
+    function archivoABase64(archivo) {
+    return new Promise((resolve, reject) => {
+        const lector = new FileReader();
+
+        lector.onload = () => {
+            resolve({
+                nombre: archivo.name,
+                tipo: archivo.type || "application/octet-stream",
+                contenido: lector.result.split(",")[1]
+            });
+        };
+
+        lector.onerror = () => reject(lector.error);
+
+        lector.readAsDataURL(archivo);
+    });
+}
 document.getElementById("formAltaEmpresa").addEventListener("submit", async function(e) {
     e.preventDefault();
 
@@ -554,10 +571,21 @@ document.getElementById("formAltaEmpresa").addEventListener("submit", async func
     const mensaje = document.getElementById("mensajeEnvio");
 
     const datos = {};
-
+const archivos = {
+    logoEmpresa: [],
+    fotografiasEmpresa: [],
+    manualMarca: [],
+    textosCorporativos: [],
+    documentacionEmpresa: []
+};
     new FormData(formulario).forEach((valor, clave) => {
         // Los archivos los conectaremos en el siguiente paso
-        if (valor instanceof File) return;
+      if (valor instanceof File) {
+    if (valor.size > 0 && archivos[clave]) {
+        archivos[clave].push(valor);
+    }
+    return;
+}
 
         if (datos[clave]) {
             if (!Array.isArray(datos[clave])) {
@@ -576,7 +604,17 @@ document.getElementById("formAltaEmpresa").addEventListener("submit", async func
     boton.disabled = true;
     boton.textContent = "Enviando ficha...";
     mensaje.textContent = "Estamos enviando los datos...";
+// Convertir los archivos para poder enviarlos a Apps Script
+datos.archivos = {};
 
+for (const [clave, listaArchivos] of Object.entries(archivos)) {
+    datos.archivos[clave] = [];
+
+    for (const archivo of listaArchivos) {
+        const archivoConvertido = await archivoABase64(archivo);
+        datos.archivos[clave].push(archivoConvertido);
+    }
+}
     try {
         await fetch(URL_ALTA_EMPRESA, {
             method: "POST",
